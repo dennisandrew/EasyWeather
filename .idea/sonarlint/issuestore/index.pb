@@ -11,7 +11,3 @@ m
 Lapp/src/androidTest/java/com/dacoding/easyweather/ExampleInstrumentedTest.kt,b\9\b91f98769cb4dc53bcfdb20e4abd01bf1e259dc2
 w
 Gapp/src/main/java/com/dacoding/easyweather/presentation/MainActivity.kt,c\f\cf0450cd04ca3d77535a794badd0ceb242c71b0a
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-y
-Iapp/src/main/java/com/dacoding/easyweather/presentation/ui/theme/Theme.kt,0\2\02169a6c937886d412991e89a6bbe051a74a79dc
