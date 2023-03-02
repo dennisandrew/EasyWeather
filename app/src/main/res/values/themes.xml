@@ -2,6 +2,6 @@
 <resources>
 
     <style name="Theme.EasyWeather" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">#1B3B5A</item>
+        <item name="android:statusBarColor">@color/deep</item>
     </style>
 </resources>
