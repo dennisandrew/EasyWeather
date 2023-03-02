@@ -8,117 +8,143 @@ sealed class WeatherType(
     @DrawableRes val iconRes: Int
 ) {
     object ClearSky : WeatherType(
-        weatherDesc = "Clear sky",
+        weatherDesc = R.string.clear_sky.toString(),
         iconRes = R.drawable.ic_sunny
     )
+
     object MainlyClear : WeatherType(
-        weatherDesc = "Mainly clear",
+        weatherDesc = R.string.mainly_clear.toString(),
         iconRes = R.drawable.ic_cloudy
     )
+
     object PartlyCloudy : WeatherType(
-        weatherDesc = "Partly cloudy",
+        weatherDesc = R.string.partly_cloudy.toString(),
         iconRes = R.drawable.ic_cloudy
     )
+
     object Overcast : WeatherType(
-        weatherDesc = "Overcast",
+        weatherDesc = R.string.overcast.toString(),
         iconRes = R.drawable.ic_cloudy
     )
+
     object Foggy : WeatherType(
-        weatherDesc = "Foggy",
+        weatherDesc = R.string.foggy.toString(),
         iconRes = R.drawable.ic_very_cloudy
     )
+
     object DepositingRimeFog : WeatherType(
-        weatherDesc = "Depositing rime fog",
+        weatherDesc = R.string.depositing_rime_fog.toString(),
         iconRes = R.drawable.ic_very_cloudy
     )
+
     object LightDrizzle : WeatherType(
-        weatherDesc = "Light drizzle",
+        weatherDesc = R.string.light_drizzle.toString(),
         iconRes = R.drawable.ic_rainshower
     )
+
     object ModerateDrizzle : WeatherType(
-        weatherDesc = "Moderate drizzle",
+        weatherDesc = R.string.moderate_drizzle.toString(),
         iconRes = R.drawable.ic_rainshower
     )
+
     object DenseDrizzle : WeatherType(
-        weatherDesc = "Dense drizzle",
+        weatherDesc = R.string.dense_drizzle.toString(),
         iconRes = R.drawable.ic_rainshower
     )
+
     object LightFreezingDrizzle : WeatherType(
-        weatherDesc = "Slight freezing drizzle",
+        weatherDesc = R.string.slight_freezing_drizzle.toString(),
         iconRes = R.drawable.ic_snowyrainy
     )
+
     object DenseFreezingDrizzle : WeatherType(
-        weatherDesc = "Dense freezing drizzle",
+        weatherDesc = R.string.dense_freezing_drizzle.toString(),
         iconRes = R.drawable.ic_snowyrainy
     )
+
     object SlightRain : WeatherType(
-        weatherDesc = "Slight rain",
+        weatherDesc = R.string.slight_rain.toString(),
         iconRes = R.drawable.ic_rainy
     )
+
     object ModerateRain : WeatherType(
-        weatherDesc = "Rainy",
+        weatherDesc = R.string.rainy.toString(),
         iconRes = R.drawable.ic_rainy
     )
+
     object HeavyRain : WeatherType(
-        weatherDesc = "Heavy rain",
+        weatherDesc = R.string.heavy_rain.toString(),
         iconRes = R.drawable.ic_rainy
     )
-    object HeavyFreezingRain: WeatherType(
-        weatherDesc = "Heavy freezing rain",
+
+    object HeavyFreezingRain : WeatherType(
+        weatherDesc = R.string.heavy_freezing_rain.toString(),
         iconRes = R.drawable.ic_snowyrainy
     )
-    object SlightSnowFall: WeatherType(
-        weatherDesc = "Slight snow fall",
+
+    object SlightSnowFall : WeatherType(
+        weatherDesc = R.string.slight_snow_fall.toString(),
         iconRes = R.drawable.ic_snowy
     )
-    object ModerateSnowFall: WeatherType(
-        weatherDesc = "Moderate snow fall",
+
+    object ModerateSnowFall : WeatherType(
+        weatherDesc = R.string.moderate_snow_fall.toString(),
         iconRes = R.drawable.ic_heavysnow
     )
-    object HeavySnowFall: WeatherType(
-        weatherDesc = "Heavy snow fall",
+
+    object HeavySnowFall : WeatherType(
+        weatherDesc = R.string.heavy_snow_fall.toString(),
         iconRes = R.drawable.ic_heavysnow
     )
-    object SnowGrains: WeatherType(
-        weatherDesc = "Snow grains",
+
+    object SnowGrains : WeatherType(
+        weatherDesc = R.string.snow_grains.toString(),
         iconRes = R.drawable.ic_heavysnow
     )
-    object SlightRainShowers: WeatherType(
-        weatherDesc = "Slight rain showers",
+
+    object SlightRainShowers : WeatherType(
+        weatherDesc = R.string.slight_rain_showers.toString(),
         iconRes = R.drawable.ic_rainshower
     )
-    object ModerateRainShowers: WeatherType(
-        weatherDesc = "Moderate rain showers",
+
+    object ModerateRainShowers : WeatherType(
+        weatherDesc = R.string.moderate_rain_showers.toString(),
         iconRes = R.drawable.ic_rainshower
     )
-    object ViolentRainShowers: WeatherType(
-        weatherDesc = "Violent rain showers",
+
+    object ViolentRainShowers : WeatherType(
+        weatherDesc = R.string.violent_rain_showers.toString(),
         iconRes = R.drawable.ic_rainshower
     )
-    object SlightSnowShowers: WeatherType(
-        weatherDesc = "Light snow showers",
+
+    object SlightSnowShowers : WeatherType(
+        weatherDesc = R.string.slight_snow_showers.toString(),
         iconRes = R.drawable.ic_snowy
     )
-    object HeavySnowShowers: WeatherType(
-        weatherDesc = "Heavy snow showers",
+
+    object HeavySnowShowers : WeatherType(
+        weatherDesc = R.string.heavy_snow_showers.toString(),
         iconRes = R.drawable.ic_snowy
     )
-    object ModerateThunderstorm: WeatherType(
-        weatherDesc = "Moderate thunderstorm",
+
+    object ModerateThunderstorm : WeatherType(
+        weatherDesc = R.string.moderate_thunderstorm.toString(),
         iconRes = R.drawable.ic_thunder
     )
-    object SlightHailThunderstorm: WeatherType(
-        weatherDesc = "Thunderstorm with slight hail",
+
+    object SlightHailThunderstorm : WeatherType(
+        weatherDesc = R.string.thunderstorm_with_slight_hail.toString(),
         iconRes = R.drawable.ic_rainythunder
     )
-    object HeavyHailThunderstorm: WeatherType(
-        weatherDesc = "Thunderstorm with heavy hail",
+
+    object HeavyHailThunderstorm : WeatherType(
+        weatherDesc = R.string.thunderstorm_with_heavy_hail.toString(),
         iconRes = R.drawable.ic_rainythunder
     )
 
     companion object {
         fun fromWMO(code: Int): WeatherType {
-            return when(code) {
+            return when (code) {
                 0 -> ClearSky
                 1 -> MainlyClear
                 2 -> PartlyCloudy

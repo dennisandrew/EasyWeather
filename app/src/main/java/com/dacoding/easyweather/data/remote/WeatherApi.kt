@@ -11,4 +11,9 @@ interface WeatherApi {
         @Query("latitude") lat: Double,
         @Query("longitude") long: Double
     ): WeatherDto
+
+    companion object {
+        const val BASE_URL = "https://api.open-meteo.com/"
+    }
 }
+

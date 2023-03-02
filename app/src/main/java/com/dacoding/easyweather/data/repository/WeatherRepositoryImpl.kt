@@ -1,5 +1,6 @@
 package com.dacoding.easyweather.data.repository
 
+import com.dacoding.easyweather.R
 import com.dacoding.easyweather.data.mappers.toWeatherInfo
 import com.dacoding.easyweather.data.remote.WeatherApi
 import com.dacoding.easyweather.domain.repository.WeatherRepository
@@ -20,7 +21,7 @@ class WeatherRepositoryImpl @Inject constructor(
             )
         } catch (e: Exception) {
             e.printStackTrace()
-            Resource.Error(e.message ?: "An unknown error occurred.")
+            Resource.Error(e.message ?: R.string.unknown_error.toString())
         }
     }
 }
