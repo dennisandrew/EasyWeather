@@ -11,3 +11,21 @@ m
 Lapp/src/androidTest/java/com/dacoding/easyweather/ExampleInstrumentedTest.kt,b\9\b91f98769cb4dc53bcfdb20e4abd01bf1e259dc2
 w
 Gapp/src/main/java/com/dacoding/easyweather/presentation/MainActivity.kt,c\f\cf0450cd04ca3d77535a794badd0ceb242c71b0a
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+x
+Happ/src/main/java/com/dacoding/easyweather/domain/weather/WeatherType.kt,8\c\8ce12ba07cfd8676aea6f6a8aff33c4e224eea4f
+y
+Iapp/src/main/java/com/dacoding/easyweather/presentation/ui/theme/Theme.kt,0\2\02169a6c937886d412991e89a6bbe051a74a79dc
+x
+Happ/src/main/java/com/dacoding/easyweather/presentation/ui/theme/Type.kt,c\9\c95adf9b03e03c78dce5bfaf62a88f333a0b0432
+y
+Iapp/src/main/java/com/dacoding/easyweather/presentation/ui/theme/Shape.kt,9\5\954400371e8d26fb35464c74c43d4b031ba6232e
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+y
+Iapp/src/main/java/com/dacoding/easyweather/presentation/ui/theme/Color.kt,0\f\0ff0fe966fc9d644fc4159a6970c86300ea0dc42
+R
+"app/src/main/res/values/colors.xml,9\6\969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
