@@ -11,10 +11,6 @@ m
 Lapp/src/androidTest/java/com/dacoding/easyweather/ExampleInstrumentedTest.kt,b\9\b91f98769cb4dc53bcfdb20e4abd01bf1e259dc2
 w
 Gapp/src/main/java/com/dacoding/easyweather/presentation/MainActivity.kt,c\f\cf0450cd04ca3d77535a794badd0ceb242c71b0a
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 x
 Happ/src/main/java/com/dacoding/easyweather/domain/weather/WeatherType.kt,8\c\8ce12ba07cfd8676aea6f6a8aff33c4e224eea4f
 y
