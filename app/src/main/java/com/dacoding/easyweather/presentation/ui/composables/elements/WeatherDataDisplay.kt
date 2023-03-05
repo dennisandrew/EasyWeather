@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.ui.composables
+package com.dacoding.easyweather.presentation.ui.composables.elements
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -36,7 +36,7 @@ fun WeatherDataDisplay(
         )
         Spacer(modifier = Modifier.width(4.dp))
         Text(
-            text = "$value$unit",
+            text = "$value $unit",
             style = textStyle
         )
     }

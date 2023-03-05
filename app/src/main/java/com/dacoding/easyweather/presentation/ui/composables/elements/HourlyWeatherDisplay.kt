@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.ui.composables
+package com.dacoding.easyweather.presentation.ui.composables.elements
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement

@@ -1,144 +1,169 @@
 package com.dacoding.easyweather.domain.weather
 
 import androidx.annotation.DrawableRes
+import com.dacoding.easyweather.App
 import com.dacoding.easyweather.R
+import com.dacoding.easyweather.UiText
 
 sealed class WeatherType(
     val weatherDesc: String,
     @DrawableRes val iconRes: Int
 ) {
     object ClearSky : WeatherType(
-        weatherDesc = R.string.clear_sky.toString(),
+        weatherDesc = UiText.StringResource(R.string.clear_sky).asString(App.applicationContext()),
         iconRes = R.drawable.ic_sunny
     )
 
     object MainlyClear : WeatherType(
-        weatherDesc = R.string.mainly_clear.toString(),
-        iconRes = R.drawable.ic_cloudy
+        weatherDesc = UiText.StringResource(R.string.mainly_clear)
+            .asString(App.applicationContext()),
+        iconRes = R.drawable.ic_sunnycloudy
     )
 
     object PartlyCloudy : WeatherType(
-        weatherDesc = R.string.partly_cloudy.toString(),
+        weatherDesc = UiText.StringResource(R.string.partly_cloudy)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_cloudy
     )
 
     object Overcast : WeatherType(
-        weatherDesc = R.string.overcast.toString(),
+        weatherDesc = UiText.StringResource(R.string.overcast).asString(App.applicationContext()),
         iconRes = R.drawable.ic_cloudy
     )
 
     object Foggy : WeatherType(
-        weatherDesc = R.string.foggy.toString(),
+        weatherDesc = UiText.StringResource(R.string.foggy).asString(App.applicationContext()),
         iconRes = R.drawable.ic_very_cloudy
     )
 
     object DepositingRimeFog : WeatherType(
-        weatherDesc = R.string.depositing_rime_fog.toString(),
+        weatherDesc = UiText.StringResource(R.string.depositing_rime_fog)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_very_cloudy
     )
 
     object LightDrizzle : WeatherType(
-        weatherDesc = R.string.light_drizzle.toString(),
+        weatherDesc = UiText.StringResource(R.string.light_drizzle)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainshower
     )
 
     object ModerateDrizzle : WeatherType(
-        weatherDesc = R.string.moderate_drizzle.toString(),
+        weatherDesc = UiText.StringResource(R.string.moderate_drizzle)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainshower
     )
 
     object DenseDrizzle : WeatherType(
-        weatherDesc = R.string.dense_drizzle.toString(),
+        weatherDesc = UiText.StringResource(R.string.dense_drizzle)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainshower
     )
 
     object LightFreezingDrizzle : WeatherType(
-        weatherDesc = R.string.slight_freezing_drizzle.toString(),
+        weatherDesc = UiText.StringResource(R.string.slight_freezing_drizzle)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_snowyrainy
     )
 
     object DenseFreezingDrizzle : WeatherType(
-        weatherDesc = R.string.dense_freezing_drizzle.toString(),
+        weatherDesc = UiText.StringResource(R.string.dense_freezing_drizzle)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_snowyrainy
     )
 
     object SlightRain : WeatherType(
-        weatherDesc = R.string.slight_rain.toString(),
+        weatherDesc = UiText.StringResource(R.string.slight_rain)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainy
     )
 
     object ModerateRain : WeatherType(
-        weatherDesc = R.string.rainy.toString(),
+        weatherDesc = UiText.StringResource(R.string.moderate_rain)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainy
     )
 
     object HeavyRain : WeatherType(
-        weatherDesc = R.string.heavy_rain.toString(),
+        weatherDesc = UiText.StringResource(R.string.heavy_rain).asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainy
     )
 
     object HeavyFreezingRain : WeatherType(
-        weatherDesc = R.string.heavy_freezing_rain.toString(),
+        weatherDesc = UiText.StringResource(R.string.heavy_freezing_rain)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_snowyrainy
     )
 
     object SlightSnowFall : WeatherType(
-        weatherDesc = R.string.slight_snow_fall.toString(),
+        weatherDesc = UiText.StringResource(R.string.slight_snow_fall)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_snowy
     )
 
     object ModerateSnowFall : WeatherType(
-        weatherDesc = R.string.moderate_snow_fall.toString(),
+        weatherDesc = UiText.StringResource(R.string.moderate_snow_fall)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_heavysnow
     )
 
     object HeavySnowFall : WeatherType(
-        weatherDesc = R.string.heavy_snow_fall.toString(),
+        weatherDesc = UiText.StringResource(R.string.heavy_snow_fall)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_heavysnow
     )
 
     object SnowGrains : WeatherType(
-        weatherDesc = R.string.snow_grains.toString(),
+        weatherDesc = UiText.StringResource(R.string.snow_grains)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_heavysnow
     )
 
     object SlightRainShowers : WeatherType(
-        weatherDesc = R.string.slight_rain_showers.toString(),
+        weatherDesc = UiText.StringResource(R.string.slight_rain_showers)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainshower
     )
 
     object ModerateRainShowers : WeatherType(
-        weatherDesc = R.string.moderate_rain_showers.toString(),
+        weatherDesc = UiText.StringResource(R.string.moderate_rain_showers)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainshower
     )
 
     object ViolentRainShowers : WeatherType(
-        weatherDesc = R.string.violent_rain_showers.toString(),
+        weatherDesc = UiText.StringResource(R.string.violent_rain_showers)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainshower
     )
 
     object SlightSnowShowers : WeatherType(
-        weatherDesc = R.string.slight_snow_showers.toString(),
+        weatherDesc = UiText.StringResource(R.string.slight_snow_showers)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_snowy
     )
 
     object HeavySnowShowers : WeatherType(
-        weatherDesc = R.string.heavy_snow_showers.toString(),
+        weatherDesc = UiText.StringResource(R.string.heavy_snow_showers)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_snowy
     )
 
     object ModerateThunderstorm : WeatherType(
-        weatherDesc = R.string.moderate_thunderstorm.toString(),
+        weatherDesc = UiText.StringResource(R.string.moderate_thunderstorm)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_thunder
     )
 
     object SlightHailThunderstorm : WeatherType(
-        weatherDesc = R.string.thunderstorm_with_slight_hail.toString(),
+        weatherDesc = UiText.StringResource(R.string.thunderstorm_with_slight_hail)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainythunder
     )
 
     object HeavyHailThunderstorm : WeatherType(
-        weatherDesc = R.string.thunderstorm_with_heavy_hail.toString(),
+        weatherDesc = UiText.StringResource(R.string.thunderstorm_with_heavy_hail)
+            .asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainythunder
     )
 

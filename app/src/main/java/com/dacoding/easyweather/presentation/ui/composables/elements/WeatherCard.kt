@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.ui.composables
+package com.dacoding.easyweather.presentation.ui.composables.elements
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -42,7 +43,7 @@ fun WeatherCard(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "${R.string.today} ${
+                    text = "${stringResource(id = R.string.today)} ${
                         data.time.format(
                             DateTimeFormatter.ofPattern(timePattern)
                         )
@@ -75,7 +76,7 @@ fun WeatherCard(
                 ) {
                     WeatherDataDisplay(
                         value = data.pressure.roundToInt(),
-                        unit = R.string.hpa.toString(),
+                        unit = stringResource(id = R.string.hpa),
                         icon = ImageVector.vectorResource(id = R.drawable.ic_pressure),
                         iconTint = textColor,
                         textStyle = TextStyle(color = textColor)
@@ -89,7 +90,7 @@ fun WeatherCard(
                     )
                     WeatherDataDisplay(
                         value = data.windSpeed.roundToInt(),
-                        unit = R.string.km_per_h.toString(),
+                        unit = stringResource(id = R.string.km_per_h),
                         icon = ImageVector.vectorResource(id = R.drawable.ic_wind),
                         iconTint = textColor,
                         textStyle = TextStyle(color = textColor)

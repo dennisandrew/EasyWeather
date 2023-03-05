@@ -1,21 +1,25 @@
 package com.dacoding.easyweather.presentation
 
+
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.dacoding.easyweather.R
 import com.dacoding.easyweather.domain.location.LocationTracker
 import com.dacoding.easyweather.domain.repository.WeatherRepository
 import com.dacoding.easyweather.domain.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
+@HiltViewModel
 class WeatherViewModel @Inject constructor(
     private val repository: WeatherRepository,
-    private val locationTracker: LocationTracker
-) : ViewModel() {
+    private val locationTracker: LocationTracker,
+
+    ) : ViewModel() {
     var state by mutableStateOf(WeatherState())
         private set
 
@@ -47,7 +51,7 @@ class WeatherViewModel @Inject constructor(
             } ?: kotlin.run {
                 state = state.copy(
                     isLoading = false,
-                    error = R.string.gps_error.toString()
+                    error = "Location error"
                 )
             }
         }
