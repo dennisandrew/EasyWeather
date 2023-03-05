@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.sp
 import com.dacoding.easyweather.R
 import com.dacoding.easyweather.presentation.WeatherState
 import java.time.format.DateTimeFormatter
+import java.util.*
 import kotlin.math.roundToInt
 
 @Composable
@@ -74,13 +75,23 @@ fun WeatherCard(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    WeatherDataDisplay(
-                        value = data.pressure.roundToInt(),
-                        unit = stringResource(id = R.string.hpa),
-                        icon = ImageVector.vectorResource(id = R.drawable.ic_pressure),
-                        iconTint = textColor,
-                        textStyle = TextStyle(color = textColor)
-                    )
+                    if (Locale.getDefault().country != "RU") {
+                        WeatherDataDisplay(
+                            value = data.pressure.roundToInt(),
+                            unit = stringResource(id = R.string.hpa),
+                            icon = ImageVector.vectorResource(id = R.drawable.ic_pressure),
+                            iconTint = textColor,
+                            textStyle = TextStyle(color = textColor)
+                        )
+                    } else {
+                        WeatherDataDisplay(
+                            value = (data.pressure * 0.750062).roundToInt(),
+                            unit = stringResource(id = R.string.hpa),
+                            icon = ImageVector.vectorResource(id = R.drawable.ic_pressure),
+                            iconTint = textColor,
+                            textStyle = TextStyle(color = textColor)
+                        )
+                    }
                     WeatherDataDisplay(
                         value = data.humidity.roundToInt(),
                         unit = "%",

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    // Gps error
+    <string name="gps_error">Не удалось получить местоположение. Обязательно дайте разрешение и включите GPS.</string>
+    // Unknown error
+    <string name="unknown_error">Произошла неизвестная ошибка.</string>
+    // Weather types
+    <string name="clear_sky">Ясно</string>
+    <string name="mainly_clear">Небольшая облачность</string>
+    <string name="partly_cloudy">Облачность</string>
+    <string name="overcast">Пасмурно</string>
+    <string name="foggy">Туман</string>
+    <string name="depositing_rime_fog">Иней</string>
+    <string name="light_drizzle">Слабый мелкий дождь</string>
+    <string name="moderate_drizzle">Умеренный мелкий дождь</string>
+    <string name="dense_drizzle">Сильный мелкий дождь</string>
+    <string name="slight_freezing_drizzle">Слабый мелкий ледяной дождь</string>
+    <string name="dense_freezing_drizzle">Сильный мелкий ледяной дождь</string>
+    <string name="slight_rain">Слабый дождь</string>
+    <string name="moderate_rain">Умеренный дождь</string>
+    <string name="heavy_rain">Ливень</string>
+    <string name="heavy_freezing_rain">Сильный ледяной дождь</string>
+    <string name="slight_snow_fall">Слабый снегопад</string>
+    <string name="moderate_snow_fall">Умеренный снегопад</string>
+    <string name="heavy_snow_fall">Сильный снегопад</string>
+    <string name="snow_grains">Град</string>
+    <string name="slight_rain_showers">Небольшой проливной дождь</string>
+    <string name="moderate_rain_showers">Умеренный проливной дождь</string>
+    <string name="violent_rain_showers">Сильный проливной дождь</string>
+    <string name="slight_snow_showers">Слабая метель</string>
+    <string name="heavy_snow_showers">Сильная метель</string>
+    <string name="moderate_thunderstorm">Умеренная гроза</string>
+    <string name="thunderstorm_with_slight_hail">Гроза с небольшим градом</string>
+    <string name="thunderstorm_with_heavy_hail">Гроза с сильным градом</string>
+    // UI strings
+    <string name="today">Сегодня</string>
+    <string name="km_per_h">км/ч</string>
+    <string name="hpa">мм рт. ст.</string>
+</resources>

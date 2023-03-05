@@ -6,6 +6,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.dacoding.easyweather.App
+import com.dacoding.easyweather.R
+import com.dacoding.easyweather.UiText
 import com.dacoding.easyweather.domain.location.LocationTracker
 import com.dacoding.easyweather.domain.repository.WeatherRepository
 import com.dacoding.easyweather.domain.util.Resource
@@ -51,7 +54,9 @@ class WeatherViewModel @Inject constructor(
             } ?: kotlin.run {
                 state = state.copy(
                     isLoading = false,
-                    error = "Location error"
+                    error = UiText.StringResource(R.string.gps_error).asString(
+                        App.applicationContext()
+                    )
                 )
             }
         }
