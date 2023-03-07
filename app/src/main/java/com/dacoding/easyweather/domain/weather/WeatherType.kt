@@ -3,7 +3,7 @@ package com.dacoding.easyweather.domain.weather
 import androidx.annotation.DrawableRes
 import com.dacoding.easyweather.App
 import com.dacoding.easyweather.R
-import com.dacoding.easyweather.UiText
+import com.dacoding.easyweather.presentation.util.UiText
 
 sealed class WeatherType(
     val weatherDesc: String,
@@ -87,6 +87,12 @@ sealed class WeatherType(
     object HeavyRain : WeatherType(
         weatherDesc = UiText.StringResource(R.string.heavy_rain).asString(App.applicationContext()),
         iconRes = R.drawable.ic_rainy
+    )
+
+    object LightFreezingRain : WeatherType(
+        weatherDesc = UiText.StringResource(R.string.light_freezing_rain)
+            .asString(App.applicationContext()),
+        iconRes = R.drawable.ic_snowyrainy
     )
 
     object HeavyFreezingRain : WeatherType(
@@ -184,7 +190,7 @@ sealed class WeatherType(
                 61 -> SlightRain
                 63 -> ModerateRain
                 65 -> HeavyRain
-                66 -> LightFreezingDrizzle
+                66 -> LightFreezingRain
                 67 -> HeavyFreezingRain
                 71 -> SlightSnowFall
                 73 -> ModerateSnowFall

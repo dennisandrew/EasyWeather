@@ -19,6 +19,7 @@
     <string name="slight_rain">Слабый дождь</string>
     <string name="moderate_rain">Умеренный дождь</string>
     <string name="heavy_rain">Ливень</string>
+    <string name="light_freezing_rain">Слабый ледяной дождь</string>
     <string name="heavy_freezing_rain">Сильный ледяной дождь</string>
     <string name="slight_snow_fall">Слабый снегопад</string>
     <string name="moderate_snow_fall">Умеренный снегопад</string>
@@ -36,4 +37,5 @@
     <string name="today">Сегодня</string>
     <string name="km_per_h">км/ч</string>
     <string name="hpa">мм рт. ст.</string>
+    <string name="to_gps_settings_btn">Настройки GPS</string>
 </resources>

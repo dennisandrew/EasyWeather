@@ -8,10 +8,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dacoding.easyweather.App
 import com.dacoding.easyweather.R
-import com.dacoding.easyweather.UiText
 import com.dacoding.easyweather.domain.location.LocationTracker
 import com.dacoding.easyweather.domain.repository.WeatherRepository
 import com.dacoding.easyweather.domain.util.Resource
+import com.dacoding.easyweather.presentation.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -40,7 +40,7 @@ class WeatherViewModel @Inject constructor(
                         state = state.copy(
                             weatherInfo = result.data,
                             isLoading = false,
-                            error = null
+                            error = null,
                         )
                     }
                     is Resource.Error -> {

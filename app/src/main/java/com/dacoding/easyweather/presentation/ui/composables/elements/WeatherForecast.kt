@@ -24,12 +24,13 @@ fun WeatherForecast(
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp)
+                .padding(bottom = 32.dp)
         ) {
             Text(
+                modifier = Modifier.padding(start = 8.dp),
                 text = stringResource(id = R.string.today),
                 fontSize = 20.sp,
-                color = textColor
+                color = textColor,
             )
             Spacer(modifier = Modifier.height(16.dp))
             LazyRow(content = {

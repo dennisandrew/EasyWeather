@@ -2,14 +2,11 @@ package com.dacoding.easyweather.presentation.ui.composables.elements
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -24,18 +21,16 @@ import java.util.*
 import kotlin.math.roundToInt
 
 @Composable
-fun WeatherCard(
+fun WeatherBlock(
+    modifier: Modifier = Modifier,
     state: WeatherState,
-    backgroundColor: Color = MaterialTheme.colors.background,
-    modifier: Modifier = Modifier
 ) {
     val timePattern = "HH:mm"
     val textColor = MaterialTheme.colors.onBackground
     state.weatherInfo?.currentWeatherData?.let { data ->
-        Card(
-            backgroundColor = backgroundColor,
-            shape = RoundedCornerShape(10.dp),
-            modifier = modifier.padding(16.dp)
+        Box(
+            modifier = modifier
+                .padding(16.dp)
         ) {
             Column(
                 modifier = Modifier

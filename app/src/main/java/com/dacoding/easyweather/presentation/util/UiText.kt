@@ -1,4 +1,4 @@
-package com.dacoding.easyweather
+package com.dacoding.easyweather.presentation.util
 
 
 import android.content.Context

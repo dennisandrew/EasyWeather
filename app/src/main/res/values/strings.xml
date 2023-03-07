@@ -1,6 +1,6 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     // App name
-    <string name="app_name">EasyWeather</string>
+    <string name="app_name" tools:ignore="MissingTranslation">EasyWeather</string>
     // Gps error
     <string name="gps_error">Couldn\'t retrieve location. Make sure to grant permission and enable GPS.</string>
     // Unknown error
@@ -20,6 +20,7 @@
     <string name="slight_rain">Slight rain</string>
     <string name="moderate_rain">Moderate rain</string>
     <string name="heavy_rain">Heavy rain</string>
+    <string name="light_freezing_rain">Light freezing rain</string>
     <string name="heavy_freezing_rain">Heavy freezing rain</string>
     <string name="slight_snow_fall">Slight snow fall</string>
     <string name="moderate_snow_fall">Moderate snow fall</string>
@@ -37,4 +38,5 @@
     <string name="today">Today</string>
     <string name="km_per_h">km/h</string>
     <string name="hpa">hpa</string>
+    <string name="to_gps_settings_btn">To GPS settings</string>
 </resources>
