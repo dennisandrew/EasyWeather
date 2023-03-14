@@ -21,9 +21,9 @@ fun Background(imageRes: Int) {
             ColorMatrix()
                 .apply {
                     setToScale(
-                        0.85f,
-                        0.85f,
-                        0.85f,
+                        0.75f,
+                        0.75f,
+                        0.75f,
                         1f
                     )
                 }

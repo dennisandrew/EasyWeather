@@ -31,6 +31,7 @@ fun WeatherDataDisplay(
         Icon(
             imageVector = icon,
             contentDescription = null,
+
             tint = iconTint,
             modifier = Modifier.size(25.dp)
         )
