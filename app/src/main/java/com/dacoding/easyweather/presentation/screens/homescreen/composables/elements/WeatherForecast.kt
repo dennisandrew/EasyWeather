@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.ui.composables.elements
+package com.dacoding.easyweather.presentation.screens.homescreen.composables.elements
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
@@ -11,12 +11,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dacoding.easyweather.R
-import com.dacoding.easyweather.presentation.WeatherState
+import com.dacoding.easyweather.presentation.screens.homescreen.util.HomeWeatherState
 
 
 @Composable
 fun WeatherForecast(
-    state: WeatherState,
+    state: HomeWeatherState,
     modifier: Modifier = Modifier
 ) {
     val textColor = MaterialTheme.colors.onBackground

@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.ui.composables.elements
+package com.dacoding.easyweather.presentation.screens.homescreen.composables.elements
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -45,7 +45,10 @@ fun HourlyWeatherDisplay(
             modifier = Modifier.width(40.dp)
         )
         Text(
-            text = "${weatherData.temperatureCelsius.roundToInt()}°",
+            text = when (weatherData.temperatureCelsius > 0) {
+                true -> "+${weatherData.temperatureCelsius.roundToInt()}°"
+                false -> "${weatherData.temperatureCelsius.roundToInt()}°"
+            },
             color = textColor,
             fontWeight = FontWeight.Bold
         )

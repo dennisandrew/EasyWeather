@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.ui.composables.elements
+package com.dacoding.easyweather.presentation.screens.homescreen.composables.elements
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -13,27 +13,24 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dacoding.easyweather.R
-import com.dacoding.easyweather.presentation.WeatherState
+import com.dacoding.easyweather.presentation.screens.homescreen.util.HomeWeatherState
 import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.math.roundToInt
 
 @Composable
 fun WeatherBlock(
-    modifier: Modifier = Modifier,
-    state: WeatherState,
+    state: HomeWeatherState,
 ) {
     val timePattern = "HH:mm"
     val textColor = MaterialTheme.colors.onBackground
     state.weatherInfo?.currentWeatherData?.let { data ->
-        Box(
-            modifier = modifier
-                .padding(8.dp)
-        ) {
+        Box {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(top = 48.dp)
+                    .padding(horizontal = 16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
@@ -43,24 +40,26 @@ fun WeatherBlock(
                         )
                     }",
                     modifier = Modifier
-                        .padding(top = 46.dp)
                         .align(Alignment.End),
                     color = textColor
                 )
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(46.dp))
                 Text(
-                    text = "${data.temperatureCelsius.roundToInt()}°",
+                    text = when (data.temperatureCelsius > 0) {
+                        true -> "+${data.temperatureCelsius.roundToInt()}°"
+                        false -> "${data.temperatureCelsius.roundToInt()}°"
+                    },
                     fontSize = 86.sp,
                     color = textColor,
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(24.dp))
                 Text(
                     modifier = Modifier,
                     text = data.weatherType.weatherDesc,
                     fontSize = 20.sp,
                     color = textColor
                 )
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(48.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround

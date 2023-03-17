@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.ui.composables.elements
+package com.dacoding.easyweather.presentation.screens.homescreen.composables.elements
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer

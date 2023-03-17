@@ -1,7 +1,6 @@
-package com.dacoding.easyweather.presentation.ui.composables.elements
+package com.dacoding.easyweather.presentation.screens.homescreen.composables.elements
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
@@ -11,9 +10,12 @@ import androidx.compose.ui.res.painterResource
 
 
 @Composable
-fun Background(imageRes: Int) {
+fun Background(
+    modifier: Modifier = Modifier,
+    imageRes: Int
+) {
     Image(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier,
         painter = painterResource(id = imageRes),
         contentDescription = null,
         contentScale = ContentScale.Crop,
