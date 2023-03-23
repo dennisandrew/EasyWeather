@@ -1,15 +1,24 @@
 package com.dacoding.easyweather.presentation.ui.theme
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.runtime.Composable
 
+@SuppressLint("ConflictingOnColor")
+private val LightColorPalette = darkColors(
+    primary = TextUniversal,
+    background = BackgroundLight,
+    onBackground = TextLight,
+    primaryVariant = Grey
+)
+
 private val DarkColorPalette = darkColors(
-//    primary = Main,
-    background = Deep,
-//    onPrimary = Dark,
-    onBackground = TextWhite
+    primary = TextUniversal,
+    background = BackgroundDark,
+    onBackground = TextDark,
+    primaryVariant = Grey
 )
 
 @Composable
@@ -20,8 +29,7 @@ fun EasyWeatherTheme(
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
-        // Only Dark theme
-        DarkColorPalette
+        LightColorPalette
     }
 
     MaterialTheme(

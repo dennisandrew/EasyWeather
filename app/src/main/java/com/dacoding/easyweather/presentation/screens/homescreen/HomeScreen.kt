@@ -18,8 +18,8 @@ import com.dacoding.easyweather.R
 import com.dacoding.easyweather.presentation.MainActivity
 import com.dacoding.easyweather.presentation.WeatherViewModel
 import com.dacoding.easyweather.presentation.screens.homescreen.composables.elements.Background
+import com.dacoding.easyweather.presentation.screens.homescreen.composables.elements.BottomSheet
 import com.dacoding.easyweather.presentation.screens.homescreen.composables.elements.WeatherBlock
-import com.dacoding.easyweather.presentation.screens.homescreen.composables.elements.WeatherForecast
 import com.dacoding.easyweather.presentation.screens.homescreen.util.HomeWeatherEvent
 import com.dacoding.easyweather.presentation.ui.theme.EasyWeatherTheme
 import com.dacoding.easyweather.presentation.util.UiText
@@ -44,11 +44,14 @@ fun HomeScreen(
             ) {
                 item {
                     Box(
-                        modifier = Modifier.fillParentMaxHeight(1f),
+                        modifier = Modifier
+                            .fillParentMaxHeight(1f)
                     ) {
                         Background(
                             modifier = Modifier.fillMaxSize(),
-                            getImageResByWeatherType(viewModel.state.weatherInfo)
+                            imageRes = getImageResByWeatherType(
+                                viewModel.state.weatherInfo
+                            )
                         )
                         Column(
                             modifier = Modifier
@@ -59,24 +62,13 @@ fun HomeScreen(
                             WeatherBlock(
                                 state = viewModel.state,
                             )
-                            WeatherForecast(state = viewModel.state)
+                            BottomSheet(viewModel = viewModel)
                         }
-//            Box {
-//                IconButton(
-//                    modifier = Modifier
-//                        .size(24.dp),
-//                    onClick = {
-//                        viewModel.onEvent(HomeWeatherEvent.Refresh)
-//                    }
-//                ) {
-//                    Icon(imageVector = Icons.Default.Refresh, contentDescription = null)
-//                }
-//            }
 
                         if (viewModel.state.isLoading) {
                             CircularProgressIndicator(
                                 modifier = Modifier.align(Alignment.Center),
-                                color = MaterialTheme.colors.onBackground,
+                                color = MaterialTheme.colors.primaryVariant,
                                 strokeWidth = 2.dp
                             )
                         }

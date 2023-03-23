@@ -34,6 +34,7 @@
     <string name="thunderstorm_with_slight_hail">Гроза с небольшим градом</string>
     <string name="thunderstorm_with_heavy_hail">Гроза с сильным градом</string>
     // UI strings
+    <string name="weather_today">Погода Сегодня</string>
     <string name="today">Сегодня</string>
     <string name="km_per_h">км/ч</string>
     <string name="hpa">мм рт. ст.</string>

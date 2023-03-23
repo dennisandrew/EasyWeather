@@ -63,11 +63,14 @@ fun NavigationDrawer(
                 .padding(it)
         ) {
             EasyWeatherNavHost(navHostController = navController, viewModel = viewModel)
-            TopBar {
-                scope.launch {
-                    scaffoldState.drawerState.open()
+            TopBar(
+                viewModel = viewModel,
+                onIconClick = {
+                    scope.launch {
+                        scaffoldState.drawerState.open()
+                    }
                 }
-            }
+            )
         }
     }
 }
@@ -116,7 +119,8 @@ fun DrawerBody(
 
 @Composable
 fun TopBar(
-    onIconClick: () -> Unit
+    onIconClick: () -> Unit,
+    viewModel: WeatherViewModel
 ) {
     TopAppBar(
         modifier = Modifier.padding(top = 32.dp),
@@ -124,14 +128,15 @@ fun TopBar(
         elevation = 0.dp,
         backgroundColor = Color.Transparent.copy(alpha = 0.0f),
         contentColor = MaterialTheme.colors.onBackground,
-        navigationIcon = {
+        navigationIcon =
+        {
             IconButton(
                 onClick = onIconClick
             ) {
                 Icon(
                     imageVector = Icons.Default.Menu,
                     contentDescription = null,
-                    tint = MaterialTheme.colors.onBackground
+                    tint = MaterialTheme.colors.primary
                 )
             }
         }

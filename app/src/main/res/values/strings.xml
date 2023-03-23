@@ -35,6 +35,7 @@
     <string name="thunderstorm_with_slight_hail">Thunderstorm with slight hail</string>
     <string name="thunderstorm_with_heavy_hail">Thunderstorm with heavy hail</string>
     // UI strings
+    <string name="weather_today">Weather Today</string>
     <string name="today">Today</string>
     <string name="km_per_h">km/h</string>
     <string name="hpa">hpa</string>

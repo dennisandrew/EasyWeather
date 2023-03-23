@@ -47,7 +47,11 @@ fun HourlyWeatherDisplay(
         Text(
             text = when (weatherData.temperatureCelsius > 0) {
                 true -> "+${weatherData.temperatureCelsius.roundToInt()}°"
-                false -> "${weatherData.temperatureCelsius.roundToInt()}°"
+                false -> if (weatherData.temperatureCelsius.roundToInt() == 0) {
+                    " ${weatherData.temperatureCelsius.roundToInt()}°"
+                } else {
+                    "${weatherData.temperatureCelsius.roundToInt()}°"
+                }
             },
             color = textColor,
             fontWeight = FontWeight.Bold

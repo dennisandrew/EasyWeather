@@ -23,7 +23,7 @@ fun WeatherBlock(
     state: HomeWeatherState,
 ) {
     val timePattern = "HH:mm"
-    val textColor = MaterialTheme.colors.onBackground
+    val textColor = MaterialTheme.colors.primary
     state.weatherInfo?.currentWeatherData?.let { data ->
         Box {
             Column(
@@ -47,7 +47,11 @@ fun WeatherBlock(
                 Text(
                     text = when (data.temperatureCelsius > 0) {
                         true -> "+${data.temperatureCelsius.roundToInt()}°"
-                        false -> "${data.temperatureCelsius.roundToInt()}°"
+                        false -> if (data.temperatureCelsius.roundToInt() == 0) {
+                            " ${data.temperatureCelsius.roundToInt()}°"
+                        } else {
+                            "${data.temperatureCelsius.roundToInt()}°"
+                        }
                     },
                     fontSize = 86.sp,
                     color = textColor,
