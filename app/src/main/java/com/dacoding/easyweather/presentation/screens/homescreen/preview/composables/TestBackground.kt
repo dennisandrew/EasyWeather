@@ -1,9 +1,11 @@
-package com.dacoding.easyweather.presentation.screens.homescreen.composables.elements
+package com.dacoding.easyweather.presentation.screens.homescreen.preview.composables
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -11,18 +13,25 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import com.dacoding.easyweather.R
+import com.dacoding.easyweather.presentation.ui.theme.EasyWeatherTheme
 
 
 @Composable
-fun Background(
+fun TestBackground(
     modifier: Modifier = Modifier,
     imageRes: Int?
 ) {
     if (imageRes == null) {
         if (isSystemInDarkTheme())
-            Box(modifier = Modifier.background(Color.Black))
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .background(Color.Black))
         else
-            Box(modifier = Modifier.background(Color.White))
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White))
     } else {
         Image(
             modifier = modifier,
@@ -41,6 +50,17 @@ fun Background(
                     }
             )
         )
+    }
+}
+
+@Preview(showBackground = true,
+    backgroundColor = 0x000000,
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
+@Composable
+fun TestBackgroundPreview() {
+    EasyWeatherTheme {
+        TestBackground(imageRes = R.drawable.weather_clear)
     }
 }
 

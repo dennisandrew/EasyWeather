@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.screens.homescreen.util
+package com.dacoding.easyweather.presentation.screens.homescreen.screen.util
 
 import com.dacoding.easyweather.domain.weather.WeatherInfo
 

@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.screens.homescreen.composables.elements
+package com.dacoding.easyweather.presentation.screens.homescreen.screen.composables.elements
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -13,7 +13,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dacoding.easyweather.R
-import com.dacoding.easyweather.presentation.screens.homescreen.util.HomeWeatherState
+import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherState
 import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.math.roundToInt

@@ -11,8 +11,8 @@ import com.dacoding.easyweather.R
 import com.dacoding.easyweather.domain.location.LocationTracker
 import com.dacoding.easyweather.domain.repository.WeatherRepository
 import com.dacoding.easyweather.domain.util.Resource
-import com.dacoding.easyweather.presentation.screens.homescreen.util.HomeWeatherEvent
-import com.dacoding.easyweather.presentation.screens.homescreen.util.HomeWeatherState
+import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherEvent
+import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherState
 import com.dacoding.easyweather.presentation.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.screens.homescreen.composables.elements
+package com.dacoding.easyweather.presentation.screens.homescreen.preview.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -13,16 +13,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.dacoding.easyweather.domain.weather.WeatherData
+import com.dacoding.easyweather.R
+import com.dacoding.easyweather.domain.test.TestWeatherData
+import com.dacoding.easyweather.presentation.screens.homescreen.preview.util.TestHomeWeatherState
+import com.dacoding.easyweather.presentation.ui.theme.EasyWeatherTheme
 import java.time.format.DateTimeFormatter
 import kotlin.math.roundToInt
 
 @Composable
-fun HourlyWeatherDisplay(
-    weatherData: WeatherData,
+fun TestHourlyWeatherDisplay(
+    weatherData: TestWeatherData,
     modifier: Modifier = Modifier,
-    textColor: Color = MaterialTheme.colors.onBackground
+    textColor: Color = MaterialTheme.colors.primary
 ) {
     val formattedTime = remember(weatherData) {
         val timePattern = "HH:mm"
@@ -40,7 +44,7 @@ fun HourlyWeatherDisplay(
             color = textColor
         )
         Image(
-            painter = painterResource(id = weatherData.weatherType.iconRes),
+            painter = painterResource(id = R.drawable.ic_cloudy),
             contentDescription = null,
             modifier = Modifier.width(40.dp)
         )
@@ -56,5 +60,13 @@ fun HourlyWeatherDisplay(
             color = textColor,
             fontWeight = FontWeight.Bold
         )
+    }
+}
+
+@Preview(showBackground = true, backgroundColor = 0x000000)
+@Composable
+fun TestHourlyWeatherDisplayPreview() {
+    EasyWeatherTheme {
+       TestHourlyWeatherDisplay(weatherData = TestHomeWeatherState().weatherInfo?.currentWeatherData!!)
     }
 }

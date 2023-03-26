@@ -1,6 +1,7 @@
-package com.dacoding.easyweather.presentation.screens.homescreen
+package com.dacoding.easyweather.presentation.screens.homescreen.preview
 
 import android.content.Intent
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,34 +12,32 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.dacoding.easyweather.App
 import com.dacoding.easyweather.R
 import com.dacoding.easyweather.presentation.MainActivity
-import com.dacoding.easyweather.presentation.WeatherViewModel
-import com.dacoding.easyweather.presentation.screens.homescreen.composables.elements.Background
-import com.dacoding.easyweather.presentation.screens.homescreen.composables.elements.BottomSheet
-import com.dacoding.easyweather.presentation.screens.homescreen.composables.elements.WeatherBlock
-import com.dacoding.easyweather.presentation.screens.homescreen.util.HomeWeatherEvent
+import com.dacoding.easyweather.presentation.screens.homescreen.preview.composables.TestBackground
+import com.dacoding.easyweather.presentation.screens.homescreen.preview.composables.TestBottomSheet
+import com.dacoding.easyweather.presentation.screens.homescreen.preview.composables.TestWeatherBlock
+import com.dacoding.easyweather.presentation.screens.homescreen.preview.util.TestHomeWeatherState
 import com.dacoding.easyweather.presentation.ui.theme.EasyWeatherTheme
 import com.dacoding.easyweather.presentation.util.UiText
-import com.dacoding.easyweather.presentation.util.getImageResByWeatherType
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
 
 @Composable
-fun HomeScreen(
-    viewModel: WeatherViewModel,
-) {
-    val isRefreshing = viewModel.state.isRefreshing
+fun TestHomeScreen() {
+    val state = TestHomeWeatherState()
+    val isRefreshing = state.isRefreshing
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = isRefreshing)
     EasyWeatherTheme {
         SwipeRefresh(
             modifier = Modifier.fillMaxSize(),
             state = swipeRefreshState,
-            onRefresh = { viewModel.onEvent(HomeWeatherEvent.Refresh) }) {
+            onRefresh = { Toast(App.applicationContext()).setText("Refresh") }) {
             LazyColumn(
                 modifier = Modifier.fillMaxSize()
             ) {
@@ -47,11 +46,9 @@ fun HomeScreen(
                         modifier = Modifier
                             .fillParentMaxHeight(1f)
                     ) {
-                        Background(
+                        TestBackground(
                             modifier = Modifier.fillMaxSize(),
-                            imageRes = getImageResByWeatherType(
-                                viewModel.state.weatherInfo
-                            )
+                            imageRes = R.drawable.weather_clear
                         )
                         Column(
                             modifier = Modifier
@@ -59,20 +56,20 @@ fun HomeScreen(
                             verticalArrangement = Arrangement.SpaceBetween,
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            WeatherBlock(
-                                state = viewModel.state,
+                            TestWeatherBlock(
+                                state = state,
                             )
-                            BottomSheet(viewModel = viewModel)
+                            TestBottomSheet(state)
                         }
 
-                        if (viewModel.state.isLoading) {
+                        if (state.isLoading) {
                             CircularProgressIndicator(
                                 modifier = Modifier.align(Alignment.Center),
                                 color = MaterialTheme.colors.primaryVariant,
                                 strokeWidth = 2.dp
                             )
                         }
-                        viewModel.state.error?.let { error ->
+                        state.error?.let { error ->
                             Column(
                                 modifier = Modifier.fillMaxSize(),
                                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -84,7 +81,7 @@ fun HomeScreen(
                                     textAlign = TextAlign.Center,
                                 )
                                 IconButton(
-                                    onClick = { viewModel.loadWeatherInfo() },
+                                    onClick = { Toast(App.applicationContext()).setText("Refresh") },
                                     modifier = Modifier
                                         .size(48.dp)
                                 ) {
@@ -124,3 +121,16 @@ fun HomeScreen(
 
     }
 }
+
+
+@Preview(showBackground = true)
+@Composable
+fun HomeScreenPreview() {
+    EasyWeatherTheme {
+        TestHomeScreen()
+    }
+}
+
+
+
+

@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.screens.homescreen.composables.elements
+package com.dacoding.easyweather.presentation.screens.homescreen.screen.composables.elements
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,7 +22,7 @@ fun WeatherDataDisplay(
     icon: ImageVector,
     modifier: Modifier = Modifier,
     textStyle: TextStyle = TextStyle(),
-    iconTint: Color = MaterialTheme.colors.onBackground
+    iconTint: Color = MaterialTheme.colors.primary
 ) {
     Row(
         modifier = modifier,
@@ -31,7 +31,6 @@ fun WeatherDataDisplay(
         Icon(
             imageVector = icon,
             contentDescription = null,
-
             tint = iconTint,
             modifier = Modifier.size(25.dp)
         )
