@@ -21,7 +21,7 @@ fun animateArrow(
                 rotation.animateTo(
                     targetValue = 0f,
                     animationSpec = tween(
-                        durationMillis = 1000
+                        durationMillis = 500
                     )
                 )
             }
@@ -30,7 +30,7 @@ fun animateArrow(
                 rotation.animateTo(
                     targetValue = 180f,
                     animationSpec = tween(
-                        durationMillis = 1000
+                        durationMillis = 500
                     )
                 )
             }

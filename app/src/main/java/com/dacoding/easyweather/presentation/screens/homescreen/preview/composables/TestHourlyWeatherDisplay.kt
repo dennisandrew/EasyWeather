@@ -67,6 +67,9 @@ fun TestHourlyWeatherDisplay(
 @Composable
 fun TestHourlyWeatherDisplayPreview() {
     EasyWeatherTheme {
-       TestHourlyWeatherDisplay(weatherData = TestHomeWeatherState().weatherInfo?.currentWeatherData!!)
+       TestHourlyWeatherDisplay(
+           weatherData = TestHomeWeatherState()
+               .weatherInfo?.currentWeatherData!!
+        )
     }
 }

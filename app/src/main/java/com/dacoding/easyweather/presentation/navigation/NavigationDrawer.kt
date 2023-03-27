@@ -1,7 +1,9 @@
 package com.dacoding.easyweather.presentation.navigation
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -54,6 +56,8 @@ fun NavigationDrawer(
                 }
             )
         },
+
+        drawerShape = RoundedCornerShape(0.dp),
         drawerBackgroundColor = MaterialTheme.colors.background,
         drawerContentColor = MaterialTheme.colors.onBackground
     ) {
@@ -97,7 +101,6 @@ fun DrawerBody(
 ) {
     Column(modifier) {
         Spacer(modifier = Modifier.height(36.dp))
-
         items.forEach { item ->
             Row(
                 modifier = Modifier
@@ -122,6 +125,16 @@ fun TopBar(
     onIconClick: () -> Unit,
     viewModel: WeatherViewModel
 ) {
+    val iconTintColor =
+        if (isSystemInDarkTheme()) {
+            MaterialTheme.colors.onBackground
+        } else {
+            if (viewModel.state.weatherInfo?.currentWeatherData == null) {
+                MaterialTheme.colors.onBackground
+            } else {
+                MaterialTheme.colors.primary
+            }
+        }
     TopAppBar(
         modifier = Modifier.padding(top = 32.dp),
         title = {},
@@ -136,7 +149,7 @@ fun TopBar(
                 Icon(
                     imageVector = Icons.Default.Menu,
                     contentDescription = null,
-                    tint = MaterialTheme.colors.primary
+                    tint = iconTintColor
                 )
             }
         }

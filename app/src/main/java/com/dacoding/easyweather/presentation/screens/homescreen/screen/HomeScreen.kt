@@ -62,7 +62,8 @@ fun HomeScreen(
                             WeatherBlock(
                                 state = viewModel.state,
                             )
-                            BottomSheet(viewModel = viewModel)
+                            if (viewModel.state.weatherInfo?.weatherDataPerDay?.isEmpty() == false)
+                                BottomSheet(viewModel = viewModel)
                         }
 
                         if (viewModel.state.isLoading) {

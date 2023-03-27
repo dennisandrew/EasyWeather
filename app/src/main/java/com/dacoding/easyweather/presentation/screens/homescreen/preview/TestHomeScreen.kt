@@ -59,7 +59,8 @@ fun TestHomeScreen() {
                             TestWeatherBlock(
                                 state = state,
                             )
-                            TestBottomSheet(state)
+                            if (state.weatherInfo?.weatherDataPerDay?.isEmpty() == false)
+                                TestBottomSheet(state = state)
                         }
 
                         if (state.isLoading) {
