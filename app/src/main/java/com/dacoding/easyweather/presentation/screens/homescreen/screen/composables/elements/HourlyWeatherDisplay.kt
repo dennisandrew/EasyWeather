@@ -2,8 +2,9 @@ package com.dacoding.easyweather.presentation.screens.homescreen.screen.composab
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -12,7 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.dacoding.easyweather.domain.weather.WeatherData
 import java.time.format.DateTimeFormatter
@@ -37,13 +37,19 @@ fun HourlyWeatherDisplay(
     ) {
         Text(
             text = formattedTime,
-            color = textColor
+            color = textColor,
+            style = MaterialTheme.typography.button
         )
-        Image(
-            painter = painterResource(id = weatherData.weatherType.iconRes),
-            contentDescription = null,
-            modifier = Modifier.width(40.dp)
-        )
+        Box(
+            modifier = Modifier.size(40.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Image(
+                painter = painterResource(id = weatherData.weatherType.iconRes),
+                contentDescription = null,
+                modifier = Modifier.size(40.dp)
+            )
+        }
         Text(
             text = when (weatherData.temperatureCelsius > 0) {
                 true -> "+${weatherData.temperatureCelsius.roundToInt()}°"
@@ -54,7 +60,7 @@ fun HourlyWeatherDisplay(
                 }
             },
             color = textColor,
-            fontWeight = FontWeight.Bold
+            style = MaterialTheme.typography.button
         )
     }
 }

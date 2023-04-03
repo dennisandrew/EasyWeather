@@ -9,9 +9,9 @@ data class TestHomeWeatherState(
             currentWeatherData = TestWeatherData(
                 time = "4:20",
                 temperatureCelsius = 0.0,
-                pressure = 0.0,
-                windSpeed = 0.0,
-                humidity = 0.0,
+                pressure = 1.1,
+                windSpeed = 1.1,
+                humidity = 1.1,
                 weatherType = "Clear"
             ),
             weatherDataPerDay = mapOf(

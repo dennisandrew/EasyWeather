@@ -40,4 +40,6 @@
     <string name="km_per_h">km/h</string>
     <string name="hpa">hpa</string>
     <string name="to_gps_settings_btn">To GPS settings</string>
+    <string name="navdrawer_home">Home</string>
+    <string name="navdrawer_settings">Settings</string>
 </resources>

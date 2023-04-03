@@ -11,12 +11,15 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.dacoding.easyweather.R
 import com.dacoding.easyweather.presentation.WeatherViewModel
 import kotlinx.coroutines.launch
 
@@ -30,12 +33,12 @@ fun NavigationDrawer(
     val items = listOf(
         NavigationItem(
             route = "home",
-            title = "Home",
+            title = stringResource(id = R.string.navdrawer_home),
             icon = Icons.Default.Home
         ),
         NavigationItem(
             route = "settings",
-            title = "Settings",
+            title = stringResource(id = R.string.navdrawer_settings),
             icon = Icons.Default.Settings
         )
     )
@@ -96,7 +99,7 @@ fun NavigationDrawer(
 fun DrawerBody(
     items: List<NavigationItem>,
     modifier: Modifier = Modifier,
-    itemTextStyle: TextStyle = TextStyle(fontSize = 16.sp),
+    itemTextStyle: TextStyle = MaterialTheme.typography.h4,
     onItemClick: (NavigationItem) -> Unit
 ) {
     Column(modifier) {
@@ -106,14 +109,16 @@ fun DrawerBody(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clickable { onItemClick(item) }
-                    .padding(16.dp)
+                    .padding(16.dp),
+                verticalAlignment = Alignment.Bottom
             ) {
                 Icon(imageVector = item.icon, contentDescription = null)
                 Spacer(modifier = Modifier.width(16.dp))
                 Text(
                     modifier = Modifier.weight(1f),
                     text = item.title,
-                    style = itemTextStyle
+                    style = itemTextStyle,
+                    fontSize = 18.sp
                 )
             }
         }

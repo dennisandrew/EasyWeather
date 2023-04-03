@@ -41,7 +41,8 @@ fun TestWeatherDataDisplay(
         Spacer(modifier = Modifier.width(4.dp))
         Text(
             text = "$value $unit",
-            style = textStyle
+            style = MaterialTheme.typography.overline,
+            color = MaterialTheme.colors.primary
         )
     }
 }
@@ -56,9 +57,7 @@ fun TestWeatherDataDisplayPreview() {
             icon = ImageVector
                 .vectorResource(
                 id = R.drawable.ic_drop
-            ),
-            textStyle = TextStyle(color = MaterialTheme.colors.primary)
+            )
         )
-
     }
 }

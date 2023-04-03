@@ -14,8 +14,9 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.dacoding.easyweather.presentation.WeatherViewModel
-import com.dacoding.easyweather.presentation.screens.homescreen.preview.composables.collapseBottomSheet
-import com.dacoding.easyweather.presentation.util.animateArrow
+import com.dacoding.easyweather.presentation.util.animations.animateArrow
+import com.dacoding.easyweather.presentation.util.animations.animateBottomSheetPeeking
+import com.dacoding.easyweather.presentation.util.animations.animateDivider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -33,6 +34,11 @@ fun BottomSheet(
     val scope = rememberCoroutineScope()
 
     val arrowAnimation = animateArrow(sheetState = sheetState)
+
+    val sheetPeekHeight = animateBottomSheetPeeking(sheetState = sheetState)
+    
+    val dividerAlpha = animateDivider(sheetState = sheetState)
+
     BottomSheetScaffold(
         sheetGesturesEnabled = !viewModel.state.isLoading,
         backgroundColor = Color.Transparent,
@@ -48,6 +54,14 @@ fun BottomSheet(
                         .fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
+                    Spacer(modifier = Modifier.height(34.dp))
+                    Divider(
+                        modifier = Modifier
+                            .width(192.dp)
+                            .alpha(dividerAlpha.value),
+                        color = MaterialTheme.colors.primary
+                    )
+                    Spacer(modifier = Modifier.height(25.dp))
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -74,10 +88,9 @@ fun BottomSheet(
                     WeatherForecast(state = viewModel.state)
                 }
             }
-
         },
         sheetBackgroundColor = Color.Transparent,
-        sheetPeekHeight = 144.dp,
+        sheetPeekHeight = sheetPeekHeight.value.dp,
         sheetShape = MaterialTheme.shapes.small,
         sheetElevation = 0.dp
     ) {

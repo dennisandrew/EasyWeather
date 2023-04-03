@@ -34,7 +34,7 @@ fun EasyWeatherTheme(
 
     MaterialTheme(
         colors = colors,
-        typography = Typography,
+        typography = appTypography,
         shapes = Shapes,
         content = content
     )

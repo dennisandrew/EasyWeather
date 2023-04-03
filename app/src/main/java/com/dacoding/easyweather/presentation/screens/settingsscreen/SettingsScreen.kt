@@ -2,6 +2,7 @@ package com.dacoding.easyweather.presentation.screens.settingsscreen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,7 +30,10 @@ fun SettingsScreen(
                     .blur(16.dp),
                 imageRes = getImageResByWeatherType(viewModel.state.weatherInfo)
             )
-            Text(text = "Settings Screen")
+            Text(
+                text = "Settings Screen",
+                color = MaterialTheme.colors.primary
+            )
         }
     }
 }

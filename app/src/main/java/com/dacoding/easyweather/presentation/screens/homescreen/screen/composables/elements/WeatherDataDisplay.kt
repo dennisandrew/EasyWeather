@@ -21,23 +21,25 @@ fun WeatherDataDisplay(
     unit: String,
     icon: ImageVector,
     modifier: Modifier = Modifier,
-    textStyle: TextStyle = TextStyle(),
-    iconTint: Color = MaterialTheme.colors.primary
+    iconTint: Color = MaterialTheme.colors.primary,
+    textColor: Color = MaterialTheme.colors.primary,
+    textStyle: TextStyle = MaterialTheme.typography.overline
 ) {
     Row(
         modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Icon(
             imageVector = icon,
             contentDescription = null,
             tint = iconTint,
-            modifier = Modifier.size(25.dp)
+            modifier = Modifier.size(24.dp)
         )
-        Spacer(modifier = Modifier.width(4.dp))
+        Spacer(modifier = Modifier.width(8.dp))
         Text(
             text = "$value $unit",
-            style = textStyle
+            style = textStyle,
+            color = textColor
         )
     }
 }

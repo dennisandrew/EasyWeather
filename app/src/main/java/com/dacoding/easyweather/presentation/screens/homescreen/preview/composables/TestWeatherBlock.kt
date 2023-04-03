@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -43,7 +42,8 @@ fun TestWeatherBlock(
                     }",
                     modifier = Modifier
                         .align(Alignment.End),
-                    color = textColor
+                    color = textColor,
+                    style = MaterialTheme.typography.body2
                 )
                 Spacer(modifier = Modifier.height(46.dp))
                 Text(
@@ -57,13 +57,15 @@ fun TestWeatherBlock(
                     },
                     fontSize = 86.sp,
                     color = textColor,
+                    style = MaterialTheme.typography.body2
                 )
                 Spacer(modifier = Modifier.height(24.dp))
                 Text(
                     modifier = Modifier,
                     text = "Clear sky",
                     fontSize = 20.sp,
-                    color = textColor
+                    color = textColor,
+                    style = MaterialTheme.typography.body1
                 )
                 Spacer(modifier = Modifier.height(48.dp))
                 Row(
@@ -72,19 +74,21 @@ fun TestWeatherBlock(
                 ) {
                     if (Locale.getDefault().country != "RU") {
                         TestWeatherDataDisplay(
+                            // Value in hpa
                             value = data.pressure.roundToInt(),
                             unit = stringResource(id = R.string.hpa),
                             icon = ImageVector.vectorResource(id = R.drawable.ic_pressure),
                             iconTint = textColor,
-                            textStyle = TextStyle(color = textColor)
+                            textStyle = MaterialTheme.typography.caption
                         )
                     } else {
                         TestWeatherDataDisplay(
+                            // Value in mm Hg
                             value = (data.pressure * 0.750062).roundToInt(),
                             unit = stringResource(id = R.string.hpa),
                             icon = ImageVector.vectorResource(id = R.drawable.ic_pressure),
                             iconTint = textColor,
-                            textStyle = TextStyle(color = textColor)
+                            textStyle = MaterialTheme.typography.caption
                         )
                     }
                     TestWeatherDataDisplay(
@@ -92,14 +96,14 @@ fun TestWeatherBlock(
                         unit = "%",
                         icon = ImageVector.vectorResource(id = R.drawable.ic_drop),
                         iconTint = textColor,
-                        textStyle = TextStyle(color = textColor)
+                        textStyle = MaterialTheme.typography.caption
                     )
                     TestWeatherDataDisplay(
                         value = data.windSpeed.roundToInt(),
                         unit = stringResource(id = R.string.km_per_h),
                         icon = ImageVector.vectorResource(id = R.drawable.ic_wind),
                         iconTint = textColor,
-                        textStyle = TextStyle(color = textColor)
+                        textStyle = MaterialTheme.typography.caption
                     )
                 }
             }

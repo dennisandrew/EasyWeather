@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dacoding.easyweather.R
@@ -41,7 +40,8 @@ fun WeatherBlock(
                     }",
                     modifier = Modifier
                         .align(Alignment.End),
-                    color = textColor
+                    color = textColor,
+                    style = MaterialTheme.typography.body2
                 )
                 Spacer(modifier = Modifier.height(46.dp))
                 Text(
@@ -55,13 +55,15 @@ fun WeatherBlock(
                     },
                     fontSize = 86.sp,
                     color = textColor,
+                    style = MaterialTheme.typography.body2
                 )
                 Spacer(modifier = Modifier.height(24.dp))
                 Text(
                     modifier = Modifier,
                     text = data.weatherType.weatherDesc,
                     fontSize = 20.sp,
-                    color = textColor
+                    color = textColor,
+                    style = MaterialTheme.typography.body1
                 )
                 Spacer(modifier = Modifier.height(48.dp))
                 Row(
@@ -74,7 +76,7 @@ fun WeatherBlock(
                             unit = stringResource(id = R.string.hpa),
                             icon = ImageVector.vectorResource(id = R.drawable.ic_pressure),
                             iconTint = textColor,
-                            textStyle = TextStyle(color = textColor)
+                            textStyle = MaterialTheme.typography.caption
                         )
                     } else {
                         WeatherDataDisplay(
@@ -82,7 +84,7 @@ fun WeatherBlock(
                             unit = stringResource(id = R.string.hpa),
                             icon = ImageVector.vectorResource(id = R.drawable.ic_pressure),
                             iconTint = textColor,
-                            textStyle = TextStyle(color = textColor)
+                            textStyle = MaterialTheme.typography.caption
                         )
                     }
                     WeatherDataDisplay(
@@ -90,14 +92,14 @@ fun WeatherBlock(
                         unit = "%",
                         icon = ImageVector.vectorResource(id = R.drawable.ic_drop),
                         iconTint = textColor,
-                        textStyle = TextStyle(color = textColor)
+                        textStyle = MaterialTheme.typography.caption
                     )
                     WeatherDataDisplay(
                         value = data.windSpeed.roundToInt(),
                         unit = stringResource(id = R.string.km_per_h),
                         icon = ImageVector.vectorResource(id = R.drawable.ic_wind),
                         iconTint = textColor,
-                        textStyle = TextStyle(color = textColor)
+                        textStyle = MaterialTheme.typography.caption
                     )
                 }
             }

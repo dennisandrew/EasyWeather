@@ -33,6 +33,10 @@ fun TestBottomSheet(state: TestHomeWeatherState) {
 
     val rotation = remember { Animatable(initialValue = 180f) }
 
+    val peekingHeight = remember { Animatable(initialValue = 200f) }
+
+    val dividerAlpha = remember { Animatable(initialValue = 0f) }
+
     LaunchedEffect(key1 = sheetState.isExpanded) {
 
         if (sheetState.isExpanded) {
@@ -56,6 +60,67 @@ fun TestBottomSheet(state: TestHomeWeatherState) {
         }
     }
 
+    LaunchedEffect(key1 = sheetState.isCollapsed) {
+        if (sheetState.isCollapsed) {
+            launch {
+                peekingHeight.animateTo(
+                    targetValue = 240f,
+                    animationSpec = tween(
+                        durationMillis = 1500,
+                        easing = EaseInBounce
+                    )
+                )
+//                peekingHeight.animateTo(
+//                    targetValue = 160f,
+//                    animationSpec = spring(
+//                        dampingRatio = Spring.DampingRatioHighBouncy,
+//                        stiffness = Spring.StiffnessMedium
+//                    )
+//                )
+                peekingHeight.animateTo(
+                    targetValue = 200f,
+                    animationSpec = tween(
+                        durationMillis = 1500,
+                        easing = EaseOutBounce
+                    )
+                )
+//                peekingHeight.animateTo(
+//                    targetValue = 144f,
+//                    animationSpec = spring(
+//                        dampingRatio = Spring.DampingRatioHighBouncy,
+//                        stiffness = Spring.StiffnessMedium
+//                    )
+//                )
+            }
+
+        }
+    }
+
+    LaunchedEffect(key1 = sheetState.isExpanded) {
+        if (sheetState.isExpanded) {
+            launch {
+                dividerAlpha.animateTo(
+                    targetValue = 0.5f,
+                    animationSpec = tween(
+                        durationMillis = 2500
+                    )
+                )
+            }
+        }
+        else {
+            launch {
+                dividerAlpha.animateTo(
+                    targetValue = 0f,
+                    animationSpec = tween(
+                        durationMillis = 500
+                    )
+                )
+            }
+        }
+    }
+
+
+
     BottomSheetScaffold(
         sheetGesturesEnabled = !state.isLoading,
         backgroundColor = Color.Transparent,
@@ -70,13 +135,21 @@ fun TestBottomSheet(state: TestHomeWeatherState) {
                         .fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
+                    Spacer(modifier = Modifier.height(34.dp))
+                    Divider(
+                        modifier = Modifier
+                            .width(192.dp)
+                            .alpha(dividerAlpha.value),
+                        color = MaterialTheme.colors.primary
+                    )
+                    Spacer(modifier = Modifier.height(25.dp))
 //                    Spacer(modifier = Modifier.height(16.dp))
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(32.dp)
                             .clickable {
-                                collapseBottomSheet(
+                                testCollapseBottomSheet(
                                     scope = scope,
                                     sheetState = sheetState
                                 )
@@ -101,7 +174,7 @@ fun TestBottomSheet(state: TestHomeWeatherState) {
             }
         },
         sheetBackgroundColor = Color.Transparent,
-        sheetPeekHeight = 144.dp,
+        sheetPeekHeight = peekingHeight.value.dp,
         sheetShape = MaterialTheme.shapes.small,
         sheetElevation = 0.dp
     ) {
@@ -110,7 +183,7 @@ fun TestBottomSheet(state: TestHomeWeatherState) {
 }
 
 @OptIn(ExperimentalMaterialApi::class)
-fun collapseBottomSheet(scope: CoroutineScope, sheetState: BottomSheetState) {
+fun testCollapseBottomSheet(scope: CoroutineScope, sheetState: BottomSheetState) {
     scope.launch {
         if (sheetState.isCollapsed)
             sheetState.expand()

@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.util
+package com.dacoding.easyweather.presentation.util.animations
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationVector1D
