@@ -36,7 +36,7 @@ fun BottomSheet(
     val arrowAnimation = animateArrow(sheetState = sheetState)
 
     val sheetPeekHeight = animateBottomSheetPeeking(sheetState = sheetState)
-    
+
     val dividerAlpha = animateDivider(sheetState = sheetState)
 
     BottomSheetScaffold(
@@ -46,13 +46,12 @@ fun BottomSheet(
         sheetContent = {
             Box(
                 modifier = Modifier
-                    .fillMaxSize()
-
+                    .fillMaxSize(),
             ) {
                 Column(
                     modifier = Modifier
                         .fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Spacer(modifier = Modifier.height(34.dp))
                     Divider(
@@ -84,8 +83,15 @@ fun BottomSheet(
                             tint = MaterialTheme.colors.primary
                         )
                     }
-//                    Spacer(modifier = Modifier.height(32.dp))
-                    WeatherForecast(state = viewModel.state)
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize(),
+//                            .padding(bottom = 8.dp),
+                        verticalArrangement = Arrangement.SpaceBetween,
+                    ) {
+                        WeatherForecast(state = viewModel.state)
+                        Chart(state = viewModel.state)
+                    }
                 }
             }
         },

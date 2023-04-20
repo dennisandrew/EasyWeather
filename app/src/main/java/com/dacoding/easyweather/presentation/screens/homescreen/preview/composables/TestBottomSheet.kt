@@ -106,8 +106,7 @@ fun TestBottomSheet(state: TestHomeWeatherState) {
                     )
                 )
             }
-        }
-        else {
+        } else {
             launch {
                 dividerAlpha.animateTo(
                     targetValue = 0f,
@@ -118,8 +117,6 @@ fun TestBottomSheet(state: TestHomeWeatherState) {
             }
         }
     }
-
-
 
     BottomSheetScaffold(
         sheetGesturesEnabled = !state.isLoading,

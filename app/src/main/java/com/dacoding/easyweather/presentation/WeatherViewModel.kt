@@ -1,6 +1,7 @@
 package com.dacoding.easyweather.presentation
 
 
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -53,6 +54,7 @@ class WeatherViewModel @Inject constructor(
                             isLoading = false,
                             error = null,
                         )
+                        Log.d("DEBUGLOC", "Location is: ${location.longitude} ${location.latitude}")
                     }
                     is Resource.Error -> {
                         state = state.copy(

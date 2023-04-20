@@ -6,7 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.dacoding.easyweather.presentation.WeatherViewModel
-import com.dacoding.easyweather.presentation.screens.homescreen.HomeScreen
+import com.dacoding.easyweather.presentation.screens.homescreen.screen.HomeScreen
 import com.dacoding.easyweather.presentation.screens.settingsscreen.SettingsScreen
 
 @Composable
