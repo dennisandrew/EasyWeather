@@ -36,7 +36,6 @@ class DefaultLocationTracker @Inject constructor(
         if (!hasAccessCoarseLocationPermission || !hasAccessFineLocationPermission || !isGpsEnabled) {
             return null
         }
-
         return suspendCancellableCoroutine { cont ->
             locationClient.lastLocation.apply {
                 if (isComplete) {

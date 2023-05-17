@@ -9,14 +9,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.unit.dp
-import com.dacoding.easyweather.presentation.WeatherViewModel
-import com.dacoding.easyweather.presentation.screens.homescreen.screen.composables.elements.Background
+import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherViewModel
+import com.dacoding.easyweather.presentation.screens.settingsscreen.composables.SettingsBackground
 import com.dacoding.easyweather.presentation.ui.theme.EasyWeatherTheme
 import com.dacoding.easyweather.presentation.util.getImageResByWeatherType
 
 @Composable
 fun SettingsScreen(
-    viewModel: WeatherViewModel
+    viewModel: HomeWeatherViewModel
 ) {
     EasyWeatherTheme {
         Box(
@@ -24,7 +24,7 @@ fun SettingsScreen(
                 .fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
-            Background(
+            SettingsBackground(
                 modifier = Modifier
                     .fillMaxSize()
                     .blur(16.dp),
@@ -37,3 +37,5 @@ fun SettingsScreen(
         }
     }
 }
+
+

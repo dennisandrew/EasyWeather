@@ -6,7 +6,17 @@ import retrofit2.http.Query
 
 interface WeatherApi {
 
-    @GET("v1/gfs?&hourly=temperature_2m,relativehumidity_2m,pressure_msl,weathercode,windspeed_10m")
+    @GET(
+        "v1/gem?hourly=temperature_2m," +
+                "relativehumidity_2m," +
+                "apparent_temperature," +
+                "precipitation," +
+                "weathercode," +
+                "pressure_msl," +
+                "cloudcover," +
+                "windspeed_10m," +
+                "windgusts_10m"
+    )
     suspend fun getWeatherData(
         @Query("latitude") lat: Double,
         @Query("longitude") long: Double

@@ -40,5 +40,6 @@
     <string name="hpa">мм рт. ст.</string>
     <string name="to_gps_settings_btn">Настройки GPS</string>
     <string name="navdrawer_home">Главная</string>
+    <string name="navdrawer_detail">Погода сегодня</string>
     <string name="navdrawer_settings">Настройки</string>
 </resources>

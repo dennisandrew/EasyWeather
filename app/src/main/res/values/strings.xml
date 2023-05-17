@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     // App name
-    <string name="app_name" tools:ignore="MissingTranslation">EasyWeather</string>
+    <string name="app_name" tools:ignore="MissingTranslation">Easy Weather</string>
     // Gps error
     <string name="gps_error">Couldn\'t retrieve location. Make sure to grant permission and enable GPS.</string>
     // Unknown error
@@ -41,5 +41,6 @@
     <string name="hpa">hpa</string>
     <string name="to_gps_settings_btn">To GPS settings</string>
     <string name="navdrawer_home">Home</string>
+    <string name="navdrawer_detail">Today weather</string>
     <string name="navdrawer_settings">Settings</string>
 </resources>

@@ -15,13 +15,16 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.dacoding.easyweather.presentation.navigation.NavigationDrawer
+import com.dacoding.easyweather.presentation.screens.detailscreen.screen.util.DetailWeatherViewModel
+import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherViewModel
 import com.dacoding.easyweather.presentation.ui.theme.EasyWeatherTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val viewModel: WeatherViewModel by viewModels()
+    private val homeViewModel: HomeWeatherViewModel by viewModels()
+    private val detailViewModel: DetailWeatherViewModel by viewModels()
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
     private lateinit var navController: NavHostController
     val gpsSettingsIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
@@ -32,7 +35,8 @@ class MainActivity : ComponentActivity() {
         permissionLauncher = registerForActivityResult(
             ActivityResultContracts.RequestMultiplePermissions()
         ) {
-            viewModel.loadWeatherInfo()
+            homeViewModel.loadWeatherInfo()
+            detailViewModel.loadWeatherInfo()
         }
         permissionLauncher.launch(
             arrayOf(
@@ -46,7 +50,10 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    NavigationDrawer(navController = navController, viewModel = viewModel)
+                    NavigationDrawer(
+                        navController = navController, homeViewModel = homeViewModel,
+                        detailViewModel = detailViewModel
+                    )
                 }
             }
         }

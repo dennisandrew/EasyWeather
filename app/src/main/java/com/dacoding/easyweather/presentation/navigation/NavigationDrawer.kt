@@ -1,14 +1,27 @@
 package com.dacoding.easyweather.presentation.navigation
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -20,13 +33,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.dacoding.easyweather.R
-import com.dacoding.easyweather.presentation.WeatherViewModel
+import com.dacoding.easyweather.presentation.screens.detailscreen.screen.util.DetailWeatherViewModel
+import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherViewModel
 import kotlinx.coroutines.launch
 
 @Composable
 fun NavigationDrawer(
     navController: NavHostController,
-    viewModel: WeatherViewModel
+    homeViewModel: HomeWeatherViewModel,
+    detailViewModel: DetailWeatherViewModel
 ) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
@@ -37,9 +52,9 @@ fun NavigationDrawer(
             icon = Icons.Default.Home
         ),
         NavigationItem(
-            route = "settings",
-            title = stringResource(id = R.string.navdrawer_settings),
-            icon = Icons.Default.Settings
+            route = "detail",
+            title = stringResource(id = R.string.navdrawer_detail),
+            icon = Icons.Default.Info
         )
     )
     Scaffold(
@@ -51,7 +66,7 @@ fun NavigationDrawer(
                 onItemClick = {
                     when (it.route) {
                         "home" -> navController.navigate(it.route)
-                        "settings" -> navController.navigate(it.route)
+                        "detail" -> navController.navigate(it.route)
                     }
                     scope.launch {
                         scaffoldState.drawerState.close()
@@ -69,9 +84,10 @@ fun NavigationDrawer(
                 .fillMaxSize()
                 .padding(it)
         ) {
-            EasyWeatherNavHost(navHostController = navController, viewModel = viewModel)
+            EasyWeatherNavHost(navHostController = navController,
+                homeViewModel = homeViewModel, detailViewModel = detailViewModel
+            )
             TopBar(
-                viewModel = viewModel,
                 onIconClick = {
                     scope.launch {
                         scaffoldState.drawerState.open()
@@ -128,18 +144,17 @@ fun DrawerBody(
 @Composable
 fun TopBar(
     onIconClick: () -> Unit,
-    viewModel: WeatherViewModel
 ) {
-    val iconTintColor =
-        if (isSystemInDarkTheme()) {
-            MaterialTheme.colors.onBackground
-        } else {
-            if (viewModel.state.weatherInfo?.currentWeatherData == null) {
-                MaterialTheme.colors.onBackground
-            } else {
-                MaterialTheme.colors.primary
-            }
-        }
+    val iconTintColor = MaterialTheme.colors.onBackground
+//        if (isSystemInDarkTheme()) {
+//            MaterialTheme.colors.onBackground
+//        } else {
+//            if (viewModel.state.weatherInfo?.currentWeatherData == null) {
+//                MaterialTheme.colors.onBackground
+//            } else {
+//                MaterialTheme.colors.primary
+//            }
+//        }
     TopAppBar(
         modifier = Modifier.padding(top = 32.dp),
         title = {},

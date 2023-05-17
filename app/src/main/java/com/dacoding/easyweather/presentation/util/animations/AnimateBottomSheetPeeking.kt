@@ -15,7 +15,7 @@ fun animateBottomSheetPeeking(
 ): Animatable<Float, AnimationVector1D> {
     val peekingHeight = remember { Animatable(initialValue = 200f) }
     LaunchedEffect(key1 = sheetState.isCollapsed) {
-        if (sheetState.isCollapsed) {
+        if (sheetState.isCollapsed && !Counter.hasRan) {
             launch {
                 peekingHeight.animateTo(
                     targetValue = 240f,
@@ -46,8 +46,12 @@ fun animateBottomSheetPeeking(
 //                    )
 //                )
             }
-
+            Counter.hasRan = !Counter.hasRan
         }
     }
     return peekingHeight
+}
+
+object Counter {
+    var hasRan = false
 }

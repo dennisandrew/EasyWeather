@@ -13,7 +13,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.dacoding.easyweather.presentation.WeatherViewModel
+import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherViewModel
 import com.dacoding.easyweather.presentation.util.animations.animateArrow
 import com.dacoding.easyweather.presentation.util.animations.animateBottomSheetPeeking
 import com.dacoding.easyweather.presentation.util.animations.animateDivider
@@ -23,7 +23,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun BottomSheet(
-    viewModel: WeatherViewModel
+    viewModel: HomeWeatherViewModel
 ) {
     val sheetState = rememberBottomSheetState(
         initialValue = BottomSheetValue.Collapsed,
@@ -90,7 +90,7 @@ fun BottomSheet(
                         verticalArrangement = Arrangement.SpaceBetween,
                     ) {
                         WeatherForecast(state = viewModel.state)
-                        Chart(state = viewModel.state)
+                        HomeTempChart(state = viewModel.state)
                     }
                 }
             }

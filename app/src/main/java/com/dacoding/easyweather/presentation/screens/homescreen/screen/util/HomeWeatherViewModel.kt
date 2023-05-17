@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation
+package com.dacoding.easyweather.presentation.screens.homescreen.screen.util
 
 
 import android.util.Log
@@ -12,8 +12,6 @@ import com.dacoding.easyweather.R
 import com.dacoding.easyweather.domain.location.LocationTracker
 import com.dacoding.easyweather.domain.repository.WeatherRepository
 import com.dacoding.easyweather.domain.util.Resource
-import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherEvent
-import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherState
 import com.dacoding.easyweather.presentation.util.UiText
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -21,10 +19,9 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class WeatherViewModel @Inject constructor(
+class HomeWeatherViewModel @Inject constructor(
     private val repository: WeatherRepository,
     private val locationTracker: LocationTracker,
-
     ) : ViewModel() {
     var state by mutableStateOf(HomeWeatherState())
         private set

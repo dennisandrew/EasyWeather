@@ -6,5 +6,9 @@ data class TestWeatherData(
     val pressure: Double,
     val windSpeed: Double,
     val humidity: Double,
-    val weatherType: String
+    val weatherType: String,
+    val apparentTemperature: Double,
+    val currentPrecipitations: Double,
+    val currentCloudCover: Int,
+    val currentWindGusts: Double
 )

@@ -1,9 +1,9 @@
-package com.dacoding.easyweather.presentation.screens.homescreen.preview.util
+package com.dacoding.easyweather.presentation.screens.detailscreen.preview.util
 
 import com.dacoding.easyweather.domain.test.TestWeatherData
 import com.dacoding.easyweather.domain.test.TestWeatherInfo
 
-data class TestHomeWeatherState(
+data class TestDetailWeatherState(
     val weatherInfo: TestWeatherInfo? =
         TestWeatherInfo(
             currentWeatherData = TestWeatherData(

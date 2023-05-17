@@ -25,11 +25,11 @@ import androidx.core.content.ContextCompat
 import com.dacoding.easyweather.App
 import com.dacoding.easyweather.R
 import com.dacoding.easyweather.presentation.MainActivity
-import com.dacoding.easyweather.presentation.WeatherViewModel
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.composables.elements.Background
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.composables.elements.BottomSheet
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.composables.elements.WeatherBlock
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherEvent
+import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherViewModel
 import com.dacoding.easyweather.presentation.ui.theme.EasyWeatherTheme
 import com.dacoding.easyweather.presentation.util.UiText
 import com.dacoding.easyweather.presentation.util.getImageResByWeatherType
@@ -39,7 +39,7 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
 @Composable
 fun HomeScreen(
-    viewModel: WeatherViewModel,
+    viewModel: HomeWeatherViewModel,
 ) {
     val isRefreshing = viewModel.state.isRefreshing
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = isRefreshing)
@@ -84,7 +84,9 @@ fun HomeScreen(
                         }
                         viewModel.state.error?.let { error ->
                             Column(
-                                modifier = Modifier.fillMaxSize(),
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(16.dp),
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center
                             ) {
