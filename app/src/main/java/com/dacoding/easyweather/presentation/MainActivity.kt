@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.dacoding.easyweather.presentation.navigation.NavigationDrawer
-import com.dacoding.easyweather.presentation.screens.detailscreen.screen.util.DetailWeatherViewModel
+import com.dacoding.easyweather.presentation.screens.forecastscreen.screen.util.ForecastWeatherViewModel
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherViewModel
 import com.dacoding.easyweather.presentation.ui.theme.EasyWeatherTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,7 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val homeViewModel: HomeWeatherViewModel by viewModels()
-    private val detailViewModel: DetailWeatherViewModel by viewModels()
+    private val detailViewModel: ForecastWeatherViewModel by viewModels()
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
     private lateinit var navController: NavHostController
     val gpsSettingsIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)

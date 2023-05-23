@@ -1,8 +1,8 @@
-package com.dacoding.easyweather.presentation.screens.detailscreen.screen.util
+package com.dacoding.easyweather.presentation.screens.forecastscreen.screen.util
 
 import com.dacoding.easyweather.domain.weather.WeatherInfo
 
-data class DetailWeatherState(
+data class ForecastWeatherState(
     val weatherInfo: WeatherInfo? = null,
     val isLoading: Boolean = false,
     val error: String? = null,

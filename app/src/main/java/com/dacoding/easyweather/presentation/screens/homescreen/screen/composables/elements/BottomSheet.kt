@@ -89,7 +89,7 @@ fun BottomSheet(
 //                            .padding(bottom = 8.dp),
                         verticalArrangement = Arrangement.SpaceBetween,
                     ) {
-                        WeatherForecast(state = viewModel.state)
+                        WeatherHourlyForecast(state = viewModel.state)
                         HomeTempChart(state = viewModel.state)
                     }
                 }

@@ -36,10 +36,21 @@
     // UI strings
     <string name="weather_today">Погода Сегодня</string>
     <string name="today">Сегодня</string>
+    <string name="tomorrow">Завтра</string>
     <string name="km_per_h">км/ч</string>
     <string name="hpa">мм рт. ст.</string>
     <string name="to_gps_settings_btn">Настройки GPS</string>
+    // Navigation
     <string name="navdrawer_home">Главная</string>
-    <string name="navdrawer_detail">Погода сегодня</string>
+    <string name="navdrawer_detail">Подробно</string>
+    <string name="navdrawer_forecast">Прогноз</string>
     <string name="navdrawer_settings">Настройки</string>
+    // DaysOfWeek
+    <string name="day_monday">Понедельник</string>
+    <string name="day_tuesday">Вторник</string>
+    <string name="day_wednesday">Среда</string>
+    <string name="day_thursday">Четверг</string>
+    <string name="day_friday">Пятница</string>
+    <string name="day_saturday">Суббота</string>
+    <string name="day_sunday">Воскресенье</string>
 </resources>

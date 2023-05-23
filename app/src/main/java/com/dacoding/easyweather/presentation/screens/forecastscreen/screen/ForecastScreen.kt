@@ -1,7 +1,6 @@
-package com.dacoding.easyweather.presentation.screens.homescreen.preview
+package com.dacoding.easyweather.presentation.screens.forecastscreen.screen
 
 import android.content.Intent
-import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,68 +19,64 @@ import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.dacoding.easyweather.App
 import com.dacoding.easyweather.R
 import com.dacoding.easyweather.presentation.MainActivity
-import com.dacoding.easyweather.presentation.screens.homescreen.preview.composables.TestBackground
-import com.dacoding.easyweather.presentation.screens.homescreen.preview.composables.TestBottomSheet
-import com.dacoding.easyweather.presentation.screens.homescreen.preview.composables.TestWeatherBlock
-import com.dacoding.easyweather.presentation.screens.homescreen.preview.util.TestHomeWeatherState
+import com.dacoding.easyweather.presentation.screens.forecastscreen.screen.composables.ForecastBackground
+import com.dacoding.easyweather.presentation.screens.forecastscreen.screen.composables.WeatherDailyForecast
+import com.dacoding.easyweather.presentation.screens.forecastscreen.screen.util.ForecastWeatherEvent
+import com.dacoding.easyweather.presentation.screens.forecastscreen.screen.util.ForecastWeatherViewModel
 import com.dacoding.easyweather.presentation.ui.theme.EasyWeatherTheme
 import com.dacoding.easyweather.presentation.util.UiText
+import com.dacoding.easyweather.presentation.util.getImageResByWeatherType
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
-
 @Composable
-fun TestHomeScreen() {
-    val state = TestHomeWeatherState()
-    val isRefreshing = state.isRefreshing
+fun ForecastScreen(
+    viewModel: ForecastWeatherViewModel,
+) {
+    val isRefreshing = viewModel.state.isRefreshing
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = isRefreshing)
     EasyWeatherTheme {
         SwipeRefresh(
             modifier = Modifier.fillMaxSize(),
             state = swipeRefreshState,
-            onRefresh = { Toast(App.applicationContext()).setText("Refresh") }) {
+            onRefresh = { viewModel.onEvent(ForecastWeatherEvent.Refresh) }) {
             LazyColumn(
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
             ) {
                 item {
                     Box(
                         modifier = Modifier
-                            .fillParentMaxHeight(1f)
+                            .fillParentMaxHeight(1f),
                     ) {
-                        TestBackground(
-                            modifier = Modifier.fillMaxSize(),
-                            imageRes = R.drawable.weather_clear
-                        )
-                        Column(
+                        ForecastBackground(
                             modifier = Modifier
-                                .fillMaxSize(),
-                            verticalArrangement = Arrangement.SpaceBetween,
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            TestWeatherBlock(
-                                state = state,
-                            )
-                            if (state.weatherInfo?.weatherDataPerDay?.isEmpty() == false)
-                                TestBottomSheet(state = state)
-                        }
-
-                        if (state.isLoading) {
+                                .fillMaxSize()
+                                .blur(16.dp),
+                            imageRes = getImageResByWeatherType(viewModel.state.weatherInfo)
+                        )
+                        WeatherDailyForecast(
+                            modifier = Modifier.padding(horizontal = 42.dp),
+                            state = viewModel.state
+                        )
+                        if (viewModel.state.isLoading) {
                             CircularProgressIndicator(
                                 modifier = Modifier.align(Alignment.Center),
                                 color = MaterialTheme.colors.primaryVariant,
                                 strokeWidth = 2.dp
                             )
                         }
-                        state.error?.let { error ->
+                        viewModel.state.error?.let { error ->
                             Column(
-                                modifier = Modifier.fillMaxSize(),
+                                modifier = Modifier
+                                    .fillMaxSize()
+                                    .padding(16.dp),
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center
                             ) {
@@ -91,7 +86,7 @@ fun TestHomeScreen() {
                                     textAlign = TextAlign.Center,
                                 )
                                 IconButton(
-                                    onClick = { Toast(App.applicationContext()).setText("Refresh") },
+                                    onClick = { viewModel.loadWeatherInfo() },
                                     modifier = Modifier
                                         .size(48.dp)
                                 ) {
@@ -124,23 +119,8 @@ fun TestHomeScreen() {
                         }
                     }
                 }
-
             }
-
         }
-
     }
 }
-
-
-@Preview(showBackground = true)
-@Composable
-fun HomeScreenPreview() {
-    EasyWeatherTheme {
-        TestHomeScreen()
-    }
-}
-
-
-
 

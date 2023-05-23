@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.screens.detailscreen.screen.composables
+package com.dacoding.easyweather.presentation.screens.forecastscreen.screen.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,7 +13,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 
 @Composable
-fun DetailBackground(
+fun ForecastBackground(
     modifier: Modifier = Modifier,
     imageRes: Int?
 ) {

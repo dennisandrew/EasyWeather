@@ -1,7 +1,7 @@
 package com.dacoding.easyweather.data.mappers
 
-import com.dacoding.easyweather.data.remote.dto.WeatherDataDto
-import com.dacoding.easyweather.data.remote.dto.WeatherDto
+import com.dacoding.easyweather.data.remote.dto.HourlyWeatherDataDto
+import com.dacoding.easyweather.data.remote.dto.HourlyWeatherDto
 import com.dacoding.easyweather.domain.weather.WeatherData
 import com.dacoding.easyweather.domain.weather.WeatherInfo
 import com.dacoding.easyweather.domain.weather.WeatherType
@@ -13,7 +13,7 @@ private data class IndexedWeatherData(
     val data: WeatherData
 )
 
-fun WeatherDataDto.toWeatherDataMap(): Map<Int, List<WeatherData>> {
+fun HourlyWeatherDataDto.toWeatherDataMap(): Map<Int, List<WeatherData>> {
     return time.mapIndexed { index, time ->
         val temperature = temperatures[index]
         val weatherCode = weatherCodes[index]
@@ -46,7 +46,7 @@ fun WeatherDataDto.toWeatherDataMap(): Map<Int, List<WeatherData>> {
     }
 }
 
-fun WeatherDto.toWeatherInfo(): WeatherInfo {
+fun HourlyWeatherDto.toWeatherInfo(): WeatherInfo {
     val weatherDataMap = weatherData.toWeatherDataMap()
     val now = LocalDateTime.now()
     val currentWeatherData = weatherDataMap[0]?.find {
@@ -62,3 +62,4 @@ fun WeatherDto.toWeatherInfo(): WeatherInfo {
         currentWeatherData = currentWeatherData
     )
 }
+

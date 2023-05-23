@@ -18,6 +18,7 @@ import com.patrykandpatrick.vico.compose.m3.style.m3ChartStyle
 import com.patrykandpatrick.vico.compose.style.ProvideChartStyle
 import com.patrykandpatrick.vico.core.component.shape.LineComponent
 import com.patrykandpatrick.vico.core.component.shape.Shapes
+import com.patrykandpatrick.vico.core.component.text.textComponent
 import com.patrykandpatrick.vico.core.entry.FloatEntry
 import com.patrykandpatrick.vico.core.entry.entryModelOf
 import com.patrykandpatrick.vico.core.entry.entryOf
@@ -45,13 +46,14 @@ fun HomeTempChart(state: HomeWeatherState) {
             chartStyle = m3ChartStyle(
                 axisLabelColor = MaterialTheme.colors.primary,
                 axisGuidelineColor = MaterialTheme.colors.primary,
-                axisLineColor = MaterialTheme.colors.primary,
-            )
+                axisLineColor = MaterialTheme.colors.primary
+            ),
         ) {
             Chart(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(vertical = 42.dp)
+                    .padding(horizontal =  16.dp)
                     .alpha(0.85f),
                 isZoomEnabled = false,
                 chart = columnChart(
@@ -65,6 +67,10 @@ fun HomeTempChart(state: HomeWeatherState) {
                 ),
                 model = chartEntryModel,
                 startAxis = startAxis(
+                    label = textComponent {
+                        color = MaterialTheme.colors.primary.toArgb()
+                        textSizeSp = 11f
+                    },
                     guideline = LineComponent(
                         color = MaterialTheme.colors.primary.toArgb(),
                         thicknessDp = 0.35f,
@@ -77,6 +83,10 @@ fun HomeTempChart(state: HomeWeatherState) {
                     }
                 ),
                 bottomAxis = bottomAxis(
+                    label = textComponent {
+                        color = MaterialTheme.colors.primary.toArgb()
+                        textSizeSp = 11f
+                    },
                     guideline = null,
                     valueFormatter = { value, chartValues ->
                         chartValues.chartEntryModel.entries.first().getOrNull(value.toInt())

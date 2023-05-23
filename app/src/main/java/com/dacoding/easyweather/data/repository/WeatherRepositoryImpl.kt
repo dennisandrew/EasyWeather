@@ -14,7 +14,7 @@ class WeatherRepositoryImpl @Inject constructor(
     override suspend fun getWeatherData(lat: Double, long: Double): Resource<WeatherInfo> {
         return try {
             Resource.Success(
-                data = api.getWeatherData(
+                data = api.getHourlyWeatherData(
                     lat = lat,
                     long = long
                 ).toWeatherInfo()

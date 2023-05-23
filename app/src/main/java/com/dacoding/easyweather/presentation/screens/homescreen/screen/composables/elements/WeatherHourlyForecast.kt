@@ -14,7 +14,7 @@ import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.Home
 
 
 @Composable
-fun WeatherForecast(
+fun WeatherHourlyForecast(
     state: HomeWeatherState,
     modifier: Modifier = Modifier
 ) {

@@ -5,8 +5,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.dacoding.easyweather.presentation.screens.detailscreen.screen.DetailScreen
-import com.dacoding.easyweather.presentation.screens.detailscreen.screen.util.DetailWeatherViewModel
+import com.dacoding.easyweather.presentation.screens.forecastscreen.screen.ForecastScreen
+import com.dacoding.easyweather.presentation.screens.forecastscreen.screen.util.ForecastWeatherViewModel
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.HomeScreen
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherViewModel
 
@@ -16,7 +16,7 @@ fun EasyWeatherNavHost(
     navHostController: NavHostController,
     startDestination: String = "home",
     homeViewModel: HomeWeatherViewModel,
-    detailViewModel: DetailWeatherViewModel
+    forecastViewModel: ForecastWeatherViewModel
 ) {
     NavHost(
         modifier = modifier,
@@ -29,9 +29,8 @@ fun EasyWeatherNavHost(
 //        composable("settings") {
 //            SettingsScreen(viewModel = viewModel)
 //        }
-        composable("detail") {
-            DetailScreen(viewModel = detailViewModel)
+        composable("forecast") {
+            ForecastScreen(viewModel = forecastViewModel)
         }
     }
-
 }

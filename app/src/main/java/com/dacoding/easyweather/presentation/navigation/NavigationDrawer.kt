@@ -18,8 +18,8 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.dacoding.easyweather.R
-import com.dacoding.easyweather.presentation.screens.detailscreen.screen.util.DetailWeatherViewModel
+import com.dacoding.easyweather.presentation.screens.forecastscreen.screen.util.ForecastWeatherViewModel
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherViewModel
 import kotlinx.coroutines.launch
 
@@ -41,7 +41,7 @@ import kotlinx.coroutines.launch
 fun NavigationDrawer(
     navController: NavHostController,
     homeViewModel: HomeWeatherViewModel,
-    detailViewModel: DetailWeatherViewModel
+    detailViewModel: ForecastWeatherViewModel
 ) {
     val scaffoldState = rememberScaffoldState()
     val scope = rememberCoroutineScope()
@@ -52,9 +52,9 @@ fun NavigationDrawer(
             icon = Icons.Default.Home
         ),
         NavigationItem(
-            route = "detail",
-            title = stringResource(id = R.string.navdrawer_detail),
-            icon = Icons.Default.Info
+            route = "forecast",
+            title = stringResource(id = R.string.navdrawer_forecast),
+            icon = Icons.Default.ArrowForward
         )
     )
     Scaffold(
@@ -64,10 +64,18 @@ fun NavigationDrawer(
             DrawerBody(
                 items = items,
                 onItemClick = {
-                    when (it.route) {
-                        "home" -> navController.navigate(it.route)
-                        "detail" -> navController.navigate(it.route)
+                    if (it.route != navController.currentDestination!!.route) {
+                        when (it.route) {
+                            "home" -> navController.navigate(it.route) {
+                                popUpTo(it.route) {
+                                    inclusive = true
+                                }
+                            }
+
+                            "forecast" -> navController.navigate(it.route)
+                        }
                     }
+
                     scope.launch {
                         scaffoldState.drawerState.close()
                     }
@@ -84,8 +92,9 @@ fun NavigationDrawer(
                 .fillMaxSize()
                 .padding(it)
         ) {
-            EasyWeatherNavHost(navHostController = navController,
-                homeViewModel = homeViewModel, detailViewModel = detailViewModel
+            EasyWeatherNavHost(
+                navHostController = navController,
+                homeViewModel = homeViewModel, forecastViewModel = detailViewModel
             )
             TopBar(
                 onIconClick = {

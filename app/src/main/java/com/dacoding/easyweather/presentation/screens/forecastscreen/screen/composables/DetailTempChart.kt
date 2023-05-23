@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.screens.detailscreen.screen.composables
+package com.dacoding.easyweather.presentation.screens.forecastscreen.screen.composables
 
 import android.graphics.Color
 import androidx.compose.foundation.layout.height
@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
-import com.dacoding.easyweather.presentation.screens.detailscreen.screen.util.DetailWeatherState
+import com.dacoding.easyweather.presentation.screens.forecastscreen.screen.util.ForecastWeatherState
 import com.patrykandpatrick.vico.compose.axis.horizontal.bottomAxis
 import com.patrykandpatrick.vico.compose.axis.vertical.startAxis
 import com.patrykandpatrick.vico.compose.chart.Chart
@@ -24,7 +24,7 @@ import com.patrykandpatrick.vico.core.entry.entryOf
 import kotlin.math.roundToInt
 
 @Composable
-fun DetailTempChart(state: DetailWeatherState) {
+fun DetailTempChart(state: ForecastWeatherState) {
 
     state.weatherInfo?.weatherDataPerDay?.get(0)?.let { data ->
         val temperatures = mutableListOf<FloatEntry>()

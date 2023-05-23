@@ -1,6 +1,6 @@
 package com.dacoding.easyweather.data.remote
 
-import com.dacoding.easyweather.data.remote.dto.WeatherDto
+import com.dacoding.easyweather.data.remote.dto.HourlyWeatherDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -17,11 +17,9 @@ interface WeatherApi {
                 "windspeed_10m," +
                 "windgusts_10m"
     )
-    suspend fun getWeatherData(
+    suspend fun getHourlyWeatherData(
         @Query("latitude") lat: Double,
         @Query("longitude") long: Double
-    ): WeatherDto
-
-
+    ): HourlyWeatherDto
 }
 

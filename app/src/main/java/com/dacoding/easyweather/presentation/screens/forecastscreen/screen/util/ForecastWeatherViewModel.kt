@@ -1,4 +1,4 @@
-package com.dacoding.easyweather.presentation.screens.detailscreen.screen.util
+package com.dacoding.easyweather.presentation.screens.forecastscreen.screen.util
 
 
 import android.util.Log
@@ -19,16 +19,16 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class DetailWeatherViewModel @Inject constructor(
+class ForecastWeatherViewModel @Inject constructor(
     private val repository: WeatherRepository,
     private val locationTracker: LocationTracker,
 ) : ViewModel() {
-    var state by mutableStateOf(DetailWeatherState())
+    var state by mutableStateOf(ForecastWeatherState())
         private set
 
-    fun onEvent(detailWeatherEvent: DetailWeatherEvent) {
+    fun onEvent(detailWeatherEvent: ForecastWeatherEvent) {
         when(detailWeatherEvent) {
-            is DetailWeatherEvent.Refresh -> {
+            is ForecastWeatherEvent.Refresh -> {
                 loadWeatherInfo()
             }
         }
