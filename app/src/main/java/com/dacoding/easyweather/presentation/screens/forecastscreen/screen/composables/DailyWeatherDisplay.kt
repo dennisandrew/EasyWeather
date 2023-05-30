@@ -1,6 +1,5 @@
 package com.dacoding.easyweather.presentation.screens.forecastscreen.screen.composables
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -45,8 +44,6 @@ fun DailyWeatherDisplay(
         tempAverage = temperatures.average()
         weatherAverage = weatherTypes.groupingBy { it }.eachCount().maxBy { it.value }.key
 
-
-        Log.d("WEATHER_ICON", "$weatherAverage")
         Row(
             modifier = modifier,
             verticalAlignment = Alignment.CenterVertically
@@ -69,7 +66,7 @@ fun DailyWeatherDisplay(
                 contentAlignment = Alignment.Center
             ) {
                 Image(
-                    painter = painterResource(id = weatherAverage!!.iconRes),
+                    painter = painterResource(id = weatherAverage.iconRes),
                     contentDescription = null,
                     modifier = Modifier.size(42.dp)
                 )
@@ -80,12 +77,12 @@ fun DailyWeatherDisplay(
                 contentAlignment = Alignment.CenterEnd
             ) {
                 Text(
-                    text = when (tempAverage!! > 0) {
-                        true -> "+${tempAverage!!.roundToInt()}°"
-                        false -> if (tempAverage!!.roundToInt() == 0) {
-                            " ${tempAverage!!.roundToInt()}°"
+                    text = when (tempAverage > 0) {
+                        true -> "+${tempAverage.roundToInt()}°"
+                        false -> if (tempAverage.roundToInt() == 0) {
+                            " ${tempAverage.roundToInt()}°"
                         } else {
-                            "${tempAverage!!.roundToInt()}°"
+                            "${tempAverage.roundToInt()}°"
                         }
                     },
                     color = textColor,
@@ -103,10 +100,6 @@ fun toDayOfWeek(index: Int): String {
     return when (index) {
         LocalDate.now().dayOfWeek.value -> {
             UiText.StringResource(R.string.today).asString(App.applicationContext()).uppercase()
-        }
-
-        LocalDate.now().dayOfWeek.value + 1 -> {
-            UiText.StringResource(R.string.tomorrow).asString(App.applicationContext()).uppercase()
         }
 
         else -> {

@@ -1,7 +1,6 @@
-package com.dacoding.easyweather.presentation.screens.forecastscreen.screen.util
+package com.dacoding.easyweather.presentation.screens.detailscreen.screen.util
 
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -19,16 +18,16 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class ForecastWeatherViewModel @Inject constructor(
+class DetailWeatherViewModel @Inject constructor(
     private val repository: WeatherRepository,
     private val locationTracker: LocationTracker,
 ) : ViewModel() {
-    var state by mutableStateOf(ForecastWeatherState())
+    var state by mutableStateOf(DetailWeatherState())
         private set
 
-    fun onEvent(forecastWeatherEvent: ForecastWeatherEvent) {
-        when(forecastWeatherEvent) {
-            is ForecastWeatherEvent.Refresh -> {
+    fun onEvent(detailWeatherEvent: DetailWeatherEvent) {
+        when(detailWeatherEvent) {
+            is DetailWeatherEvent.Refresh -> {
                 loadWeatherInfo()
             }
         }
@@ -50,7 +49,6 @@ class ForecastWeatherViewModel @Inject constructor(
                             isLoading = false,
                             error = null,
                         )
-                        Log.d("DEBUGLOC", "Location is: ${location.longitude} ${location.latitude}")
                     }
                     is Resource.Error -> {
                         state = state.copy(

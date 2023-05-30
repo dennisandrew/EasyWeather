@@ -7,12 +7,13 @@ import androidx.compose.material.darkColors
 import androidx.compose.runtime.Composable
 
 @SuppressLint("ConflictingOnColor")
-private val LightColorPalette = darkColors(
-    primary = TextUniversal,
-    background = BackgroundLight,
-    onBackground = TextLight,
-    primaryVariant = Grey
-)
+
+//private val LightColorPalette = darkColors(
+//    primary = TextUniversal,
+//    background = BackgroundLight,
+//    onBackground = TextLight,
+//    primaryVariant = Grey
+//)
 
 private val DarkColorPalette = darkColors(
     primary = TextUniversal,
@@ -29,7 +30,7 @@ fun EasyWeatherTheme(
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
-        LightColorPalette
+        DarkColorPalette
     }
 
     MaterialTheme(

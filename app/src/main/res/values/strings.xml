@@ -37,13 +37,20 @@
     // UI strings
     <string name="weather_today">Weather Today</string>
     <string name="today">Today</string>
-    <string name="tomorrow">Tomorrow</string>
     <string name="km_per_h">km/h</string>
     <string name="hpa">hpa</string>
     <string name="to_gps_settings_btn">To GPS settings</string>
+    <string name="mm">mm</string>
+    <string name="temperature">Temperature</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="precipitation_rate">Precipitation rate</string>
+    <string name="cloud_coverage">Cloud coverage</string>
+
     // Navigation
     <string name="navdrawer_home">Home</string>
-    <string name="navdrawer_detail">Today weather</string>
+    <string name="navdrawer_detail">Weather today</string>
     <string name="navdrawer_forecast">Forecast</string>
     <string name="navdrawer_settings">Settings</string>
     // DaysOfWeek
@@ -54,5 +61,6 @@
     <string name="day_friday">Friday</string>
     <string name="day_saturday">Saturday</string>
     <string name="day_sunday">Sunday</string>
+
 
 </resources>
