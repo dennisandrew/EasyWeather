@@ -102,7 +102,7 @@ fun NavigationDrawer(
                     }
                 }
             )
-            Spacer(modifier = Modifier.height(575.dp))
+            Spacer(modifier = Modifier.height(475.dp))
             Divider()
             Column(
                 modifier = Modifier
@@ -137,7 +137,7 @@ fun NavigationDrawer(
                         linkTextColor = MaterialTheme.colors.onBackground,
                     )
                 }
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(32.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
@@ -154,6 +154,28 @@ fun NavigationDrawer(
                         fullText = "denisandreev1803@gmail.com",
                         linkText = listOf("denisandreev1803@gmail.com"),
                         hyperLinks = listOf(gmailLink),
+                        fontSize = MaterialTheme.typography.body1.fontSize,
+                        linkTextColor = MaterialTheme.colors.onBackground,
+                    )
+
+                }
+                Spacer(modifier = Modifier.height(32.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Start
+                ) {
+                    Icon(
+                        modifier = Modifier.size(24.dp),
+                        painter = painterResource(id = R.drawable.ic_telegram_mark),
+                        contentDescription = null,
+                        tint = MaterialTheme.colors.onBackground
+                    )
+                    HyperlinkText(
+                        modifier = Modifier.padding(start = 16.dp),
+                        fullText = "@mr_invict",
+                        linkText = listOf("@mr_invict"),
+                        hyperLinks = listOf("https://t.me/mr_invict"),
                         fontSize = MaterialTheme.typography.body1.fontSize,
                         linkTextColor = MaterialTheme.colors.onBackground,
                     )
