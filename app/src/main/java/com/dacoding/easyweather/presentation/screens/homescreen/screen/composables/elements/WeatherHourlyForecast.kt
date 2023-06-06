@@ -22,8 +22,8 @@ fun WeatherHourlyForecast(
     state.weatherInfo?.weatherDataPerDay?.get(0)?.let { data ->
         Column(
             modifier = modifier
-                .fillMaxWidth(),
-//                .padding(bottom = 32.dp),
+                .fillMaxWidth()
+                .padding(bottom = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 //            Text(

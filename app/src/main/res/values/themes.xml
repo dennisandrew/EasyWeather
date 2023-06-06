@@ -3,6 +3,6 @@
 
     <style name="Theme.EasyWeather" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
     </style>
 </resources>

@@ -26,8 +26,8 @@ import com.dacoding.easyweather.App
 import com.dacoding.easyweather.R
 import com.dacoding.easyweather.presentation.MainActivity
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.composables.elements.Background
-import com.dacoding.easyweather.presentation.screens.homescreen.screen.composables.elements.BottomSheet
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.composables.elements.WeatherBlock
+import com.dacoding.easyweather.presentation.screens.homescreen.screen.composables.elements.WeatherHourlyForecast
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherEvent
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherViewModel
 import com.dacoding.easyweather.presentation.ui.theme.EasyWeatherTheme
@@ -72,8 +72,12 @@ fun HomeScreen(
                                 state = viewModel.state,
                             )
                             if (!viewModel.state.weatherInfo?.weatherDataPerDay.isNullOrEmpty())
-                                BottomSheet(viewModel = viewModel)
+                                WeatherHourlyForecast(state = viewModel.state)
+
+//                            if (!viewModel.state.weatherInfo?.weatherDataPerDay.isNullOrEmpty())
+//                                BottomSheet(viewModel = viewModel)
                         }
+
 
                         if (viewModel.state.isLoading) {
                             CircularProgressIndicator(

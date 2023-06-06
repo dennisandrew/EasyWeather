@@ -79,7 +79,7 @@ fun HomeTempChart(state: HomeWeatherState) {
                     ),
                     valueFormatter = { value, chartValues ->
                         chartValues.chartEntryModel.entries.first().getOrNull(value.toInt())
-                            .run { "${value.roundToInt()}°C" }
+                            .run { "${value.toInt()}°C" }
                     }
                 ),
                 bottomAxis = bottomAxis(

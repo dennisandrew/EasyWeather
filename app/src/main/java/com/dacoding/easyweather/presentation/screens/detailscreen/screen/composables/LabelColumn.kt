@@ -3,9 +3,7 @@ package com.dacoding.easyweather.presentation.screens.detailscreen.screen.compos
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
@@ -22,14 +20,18 @@ fun LabelColumn() {
     Column(
         modifier = Modifier
             .fillMaxHeight()
-            .padding(start = 16.dp),
+            .padding(start = 16.dp, top = 148.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(54.dp)
+        verticalArrangement = Arrangement.spacedBy(56.dp)
     ) {
-        Spacer(modifier = Modifier.height(168.dp))
+
+        val labelHeight = 36
+
+
+
         Box(
             modifier = Modifier
-                .size(height = 40.dp, width = 150.dp),
+                .size(height = labelHeight.dp, width = 150.dp),
             contentAlignment = Alignment.Center
         ) {
             Text(
@@ -39,7 +41,7 @@ fun LabelColumn() {
         }
 
         Box(
-            modifier = Modifier.size(height = 40.dp, width = 150.dp),
+            modifier = Modifier.size(height = labelHeight.dp, width = 150.dp),
             contentAlignment = Alignment.Center
         ) {
             Text(
@@ -49,7 +51,7 @@ fun LabelColumn() {
         }
 
         Box(
-            modifier = Modifier.size(height = 40.dp, width = 150.dp),
+            modifier = Modifier.size(height = labelHeight.dp, width = 150.dp),
             contentAlignment = Alignment.Center
         ) {
             Text(
@@ -59,7 +61,7 @@ fun LabelColumn() {
         }
 
         Box(
-            modifier = Modifier.size(height = 40.dp, width = 150.dp),
+            modifier = Modifier.size(height = labelHeight.dp, width = 150.dp),
             contentAlignment = Alignment.Center
         ) {
             Text(
@@ -69,7 +71,7 @@ fun LabelColumn() {
         }
 
         Box(
-            modifier = Modifier.size(height = 40.dp, width = 150.dp),
+            modifier = Modifier.size(height = labelHeight.dp, width = 150.dp),
             contentAlignment = Alignment.Center
         ) {
             Text(
@@ -79,7 +81,7 @@ fun LabelColumn() {
         }
 
         Box(
-            modifier = Modifier.size(height = 40.dp, width = 150.dp),
+            modifier = Modifier.size(height = labelHeight.dp, width = 150.dp),
             contentAlignment = Alignment.Center
         ) {
             Text(

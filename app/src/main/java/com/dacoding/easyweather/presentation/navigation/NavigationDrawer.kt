@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -102,13 +103,11 @@ fun NavigationDrawer(
                     }
                 }
             )
-            Spacer(modifier = Modifier.height(475.dp))
-            Divider()
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .padding(16.dp),
-                verticalArrangement = Arrangement.Center,
+                    .fillMaxHeight()
+                    .padding(horizontal = 16.dp, vertical = 48.dp),
+                verticalArrangement = Arrangement.Bottom,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 val gmailLink =
@@ -116,7 +115,8 @@ fun NavigationDrawer(
                             "denisandreev1803@gmail.com" +
                             "&su=SUBJECT&body=BODY&bcc=" +
                             "denisandreev1803@gmail.com"
-
+                Divider()
+                Spacer(modifier = Modifier.height(32.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically,
