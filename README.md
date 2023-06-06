@@ -1,4 +1,4 @@
-# 🌤️: Easy Weather App
+# 🌤️ Easy Weather App
 Simple Weather application with dynamic backgrounds implemented in Clean Architecture using Retrofit2, Navigation Compose, Dagger-Hilt, Vico Charts, Location Services.
 <h1 align="center"> :iphone: Preview  </h1>
 
