@@ -17,16 +17,14 @@ fun WeatherDailyForecast(
 ) {
     state.weatherInfo?.weatherDataPerDay?.toList().let { data ->
         Column(
-            modifier = modifier
-                .fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
             data?.forEach { weatherData ->
                 DailyWeatherDisplay(
                     weatherData = weatherData,
-                    modifier = Modifier
-                        .height(100.dp)
+                    modifier = Modifier.height(100.dp)
                 )
             }
         }
