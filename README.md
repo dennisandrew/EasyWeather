@@ -6,13 +6,13 @@ Simple Weather application with dynamic backgrounds implemented in Clean Archite
 The UI is implemented with Jetpack Compose and allows you to track the weather in the current location and the forecast for the week
 </h4></br>
 <p align="center">
-<img src="https://github.com/dennisandrew/EasyWeather/assets/102926864/59ef7920-9414-425f-8438-d016a7a2538a"
+<img src="https://github.com/dennisandrew/EasyWeather/assets/102926864/ed62526d-66a0-411f-9543-a9c045c81ce4"
 width="24.5%"/>
-<img src="https://github.com/dennisandrew/EasyWeather/assets/102926864/c8b1d234-1d7b-41a9-aa9c-547056178aa0"
+<img src="https://github.com/dennisandrew/EasyWeather/assets/102926864/8ec25f8d-2a9a-4c6e-b6c1-e5d52b7ee2d2"
 width="24.5%"/>
-<img src="https://github.com/dennisandrew/EasyWeather/assets/102926864/811285ef-34fb-4f12-a299-29b46d97b66d"
+<img src="https://github.com/dennisandrew/EasyWeather/assets/102926864/724d03ed-de66-49f7-81b0-bb389811a28f"
 width="24.5%"/>
-<img src="https://github.com/dennisandrew/EasyWeather/assets/102926864/3eaf5b55-0464-496a-be35-b3056f695e3e"
+<img src="https://github.com/dennisandrew/EasyWeather/assets/102926864/28f23743-97a0-45a8-992c-d91b4c0d74a7"
 width="24.5%"/>
 </p>
 
