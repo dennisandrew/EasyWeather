@@ -31,5 +31,5 @@ width="24.5%"/>
 
 ##  :thumbsup: References
 
-- [YouTube Tutorial by Philipp Lackner](https://www.youtube.com/watch?v=eAbKK7JNxCE&t=1628s)
+- [YouTube Tutorial by Philipp Lackner](https://www.youtube.com/watch?v=eAbKK7JNxCE)
 
