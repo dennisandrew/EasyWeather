@@ -45,12 +45,18 @@ fun WeatherBlock(
                             DateTimeFormatter.ofPattern(timePattern)
                         )
                     }",
-                    modifier = Modifier
-                        .align(Alignment.End),
+                    modifier = Modifier.align(Alignment.End),
                     color = textColor,
                     style = MaterialTheme.typography.body2
                 )
-                Spacer(modifier = Modifier.height(46.dp))
+                Spacer(modifier = Modifier.height(23.dp))
+                Text(
+                    text = state.cityName.orEmpty(),
+                    fontSize = 24.sp,
+                    color = textColor,
+                    style = MaterialTheme.typography.body2
+                )
+                Spacer(modifier = Modifier.height(23.dp))
                 Text(
                     text = when (data.temperatureCelsius > 0) {
                         true -> "+${data.temperatureCelsius.roundToInt()}°"
@@ -68,7 +74,7 @@ fun WeatherBlock(
                 Text(
                     modifier = Modifier,
                     text = data.weatherType.weatherDesc,
-                    fontSize = 20.sp,
+                    fontSize = 18.sp,
                     color = textColor,
                     style = MaterialTheme.typography.body1
                 )

@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Application
 import android.content.Context
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
 import androidx.core.content.ContextCompat
@@ -14,6 +15,7 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.Priority
 import kotlinx.coroutines.suspendCancellableCoroutine
+import java.util.Locale
 import javax.inject.Inject
 import kotlin.coroutines.resume
 
@@ -69,6 +71,21 @@ class DefaultLocationTracker @Inject constructor(
             cont.invokeOnCancellation {
                 locationClient.removeLocationUpdates(locationCallback)
             }
+        }
+    }
+
+    override fun getCityName(context: Context, location: Location): String? {
+        val geocoder = Geocoder(context, Locale.getDefault())
+        return try {
+            val addresses = geocoder.getFromLocation(location.latitude, location.longitude, 1)
+            if (!addresses.isNullOrEmpty()) {
+                addresses[0].locality // Название города
+            } else {
+                null
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
         }
     }
 }
