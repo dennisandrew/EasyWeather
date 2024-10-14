@@ -58,18 +58,23 @@ fun ForecastScreen(
                             .fillParentMaxHeight(1f),
                     ) {
                         ForecastBackground(
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .blur(16.dp),
+                            modifier =
+                                Modifier
+                                    .fillMaxSize()
+                                    .blur(15.dp),
                             imageRes = getImageResByWeatherType(viewModel.state.weatherInfo)
                         )
-                        WeatherDailyForecast(
-                            modifier = Modifier
-                                .padding(horizontal = 42.dp)
-                                .padding(top = 64.dp, bottom = 16.dp)
-                                .verticalScroll(rememberScrollState()),
-                            state = viewModel.state
-                        )
+                        Column(
+                            modifier = Modifier.align(Alignment.Center).fillParentMaxHeight(0.7f),
+                        ) {
+                            WeatherDailyForecast(
+                                modifier =
+                                    Modifier
+                                        .padding(horizontal = 42.dp)
+                                        .verticalScroll(rememberScrollState()),
+                                state = viewModel.state
+                            )
+                        }
                         if (viewModel.state.isLoading) {
                             CircularProgressIndicator(
                                 modifier = Modifier.align(Alignment.Center),
@@ -128,4 +133,3 @@ fun ForecastScreen(
         }
     }
 }
-
