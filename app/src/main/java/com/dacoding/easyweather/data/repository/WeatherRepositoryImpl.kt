@@ -23,6 +23,5 @@ class WeatherRepositoryImpl @Inject constructor(
             e.printStackTrace()
             Resource.Error(e.message ?: R.string.unknown_error.toString())
         }
-
     }
 }

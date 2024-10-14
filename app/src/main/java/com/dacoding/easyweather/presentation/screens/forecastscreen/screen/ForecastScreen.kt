@@ -48,7 +48,8 @@ fun ForecastScreen(
         SwipeRefresh(
             modifier = Modifier.fillMaxSize(),
             state = swipeRefreshState,
-            onRefresh = { viewModel.onEvent(ForecastWeatherEvent.Refresh) }) {
+            onRefresh = { viewModel.onEvent(ForecastWeatherEvent.Refresh) }
+        ) {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
             ) {

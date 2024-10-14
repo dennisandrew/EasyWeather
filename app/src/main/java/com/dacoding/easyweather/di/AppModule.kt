@@ -29,7 +29,6 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFusedLocationProviderClient(app: Application): FusedLocationProviderClient {
-        return LocationServices.getFusedLocationProviderClient(app)
-    }
+    fun provideFusedLocationProviderClient(app: Application): FusedLocationProviderClient =
+        LocationServices.getFusedLocationProviderClient(app)
 }

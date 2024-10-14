@@ -9,6 +9,10 @@ import android.location.LocationManager
 import androidx.core.content.ContextCompat
 import com.dacoding.easyweather.domain.location.LocationTracker
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.location.Priority
 import kotlinx.coroutines.suspendCancellableCoroutine
 import javax.inject.Inject
 import kotlin.coroutines.resume
@@ -37,24 +41,33 @@ class DefaultLocationTracker @Inject constructor(
             return null
         }
         return suspendCancellableCoroutine { cont ->
-            locationClient.lastLocation.apply {
-                if (isComplete) {
-                    if (isSuccessful) {
-                        cont.resume(result)
-                    } else {
-                        cont.resume(null)
-                    }
-                    return@suspendCancellableCoroutine
+            val locationRequest = LocationRequest.Builder(
+                Priority.PRIORITY_HIGH_ACCURACY,
+                0L
+            ).apply {
+                setMaxUpdates(1)
+                setMinUpdateIntervalMillis(0)
+            }.build()
+
+            val locationCallback = object : LocationCallback() {
+                override fun onLocationResult(locationResult: LocationResult) {
+                    super.onLocationResult(locationResult)
+                    locationClient.removeLocationUpdates(this)
+                    cont.resume(locationResult.lastLocation)
                 }
-                addOnSuccessListener {
-                    cont.resume(it)
-                }
+            }
+
+            locationClient.requestLocationUpdates(locationRequest, locationCallback, null).apply {
                 addOnFailureListener {
                     cont.resume(null)
                 }
                 addOnCanceledListener {
                     cont.cancel()
                 }
+            }
+
+            cont.invokeOnCancellation {
+                locationClient.removeLocationUpdates(locationCallback)
             }
         }
     }

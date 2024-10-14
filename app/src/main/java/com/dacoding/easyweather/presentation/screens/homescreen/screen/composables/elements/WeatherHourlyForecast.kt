@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherState
 
-
 @Composable
 fun WeatherHourlyForecast(
     state: HomeWeatherState,

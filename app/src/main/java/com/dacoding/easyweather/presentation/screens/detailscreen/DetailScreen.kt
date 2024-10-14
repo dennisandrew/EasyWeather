@@ -46,7 +46,8 @@ fun DetailScreen(
         SwipeRefresh(
             modifier = Modifier.fillMaxSize(),
             state = swipeRefreshState,
-            onRefresh = { viewModel.onEvent(DetailWeatherEvent.Refresh) }) {
+            onRefresh = { viewModel.onEvent(DetailWeatherEvent.Refresh) }
+        ) {
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
             ) {
@@ -66,8 +67,6 @@ fun DetailScreen(
                         ) {
                             WeatherDetailForecast(state = viewModel.state)
                         }
-
-
 
                         if (viewModel.state.isLoading) {
                             CircularProgressIndicator(
@@ -127,4 +126,3 @@ fun DetailScreen(
         }
     }
 }
-

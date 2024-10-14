@@ -1,6 +1,5 @@
 package com.dacoding.easyweather.presentation.screens.detailscreen.screen.util
 
-
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -16,7 +15,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
 @HiltViewModel
 class DetailWeatherViewModel @Inject constructor(
     private val repository: WeatherRepository,
@@ -26,7 +24,7 @@ class DetailWeatherViewModel @Inject constructor(
         private set
 
     fun onEvent(detailWeatherEvent: DetailWeatherEvent) {
-        when(detailWeatherEvent) {
+        when (detailWeatherEvent) {
             is DetailWeatherEvent.Refresh -> {
                 loadWeatherInfo()
             }

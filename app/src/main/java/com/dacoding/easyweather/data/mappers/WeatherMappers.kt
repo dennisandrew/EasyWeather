@@ -62,4 +62,3 @@ fun HourlyWeatherDto.toWeatherInfo(): WeatherInfo {
         currentWeatherData = currentWeatherData
     )
 }
-

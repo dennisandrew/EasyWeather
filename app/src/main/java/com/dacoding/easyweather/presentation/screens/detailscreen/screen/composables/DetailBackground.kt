@@ -18,10 +18,11 @@ fun DetailBackground(
     imageRes: Int?
 ) {
     if (imageRes == null) {
-        if (isSystemInDarkTheme())
+        if (isSystemInDarkTheme()) {
             Box(modifier = Modifier.background(Color.Black))
-        else
+        } else {
             Box(modifier = Modifier.background(Color.White))
+        }
     } else {
         Image(
             modifier = modifier,

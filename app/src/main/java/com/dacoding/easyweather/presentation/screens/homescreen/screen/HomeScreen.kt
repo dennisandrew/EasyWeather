@@ -36,7 +36,6 @@ import com.dacoding.easyweather.presentation.util.getImageResByWeatherType
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 
-
 @Composable
 fun HomeScreen(
     viewModel: HomeWeatherViewModel,
@@ -47,7 +46,8 @@ fun HomeScreen(
         SwipeRefresh(
             modifier = Modifier.fillMaxSize(),
             state = swipeRefreshState,
-            onRefresh = { viewModel.onEvent(HomeWeatherEvent.Refresh) }) {
+            onRefresh = { viewModel.onEvent(HomeWeatherEvent.Refresh) }
+        ) {
             LazyColumn(
                 modifier = Modifier.fillMaxSize()
             ) {
@@ -71,13 +71,13 @@ fun HomeScreen(
                             WeatherBlock(
                                 state = viewModel.state,
                             )
-                            if (!viewModel.state.weatherInfo?.weatherDataPerDay.isNullOrEmpty())
+                            if (!viewModel.state.weatherInfo?.weatherDataPerDay.isNullOrEmpty()) {
                                 WeatherHourlyForecast(state = viewModel.state)
+                            }
 
 //                            if (!viewModel.state.weatherInfo?.weatherDataPerDay.isNullOrEmpty())
 //                                BottomSheet(viewModel = viewModel)
                         }
-
 
                         if (viewModel.state.isLoading) {
                             CircularProgressIndicator(
@@ -133,10 +133,7 @@ fun HomeScreen(
                         }
                     }
                 }
-
             }
-
         }
-
     }
 }

@@ -22,10 +22,9 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -43,7 +42,6 @@ import com.dacoding.easyweather.presentation.screens.detailscreen.screen.util.De
 import com.dacoding.easyweather.presentation.screens.forecastscreen.screen.util.ForecastWeatherViewModel
 import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.HomeWeatherViewModel
 import kotlinx.coroutines.launch
-
 
 @Composable
 fun NavigationDrawer(
@@ -63,12 +61,12 @@ fun NavigationDrawer(
         NavigationItem(
             route = "detail",
             title = stringResource(id = R.string.navdrawer_detail),
-            icon = Icons.Default.List
+            icon = Icons.Default.Menu
         ),
         NavigationItem(
             route = "forecast",
             title = stringResource(id = R.string.navdrawer_forecast),
-            icon = Icons.Default.ArrowForward
+            icon = Icons.Default.WbSunny
         )
 
     )
@@ -91,7 +89,6 @@ fun NavigationDrawer(
                             "detail" -> navController.navigate(it.route) {
                                 detailWeatherViewModel.loadWeatherInfo()
                             }
-
 
                             "forecast" -> navController.navigate(it.route) {
                                 forecastViewModel.loadWeatherInfo()
@@ -157,7 +154,6 @@ fun NavigationDrawer(
                         fontSize = MaterialTheme.typography.body1.fontSize,
                         linkTextColor = MaterialTheme.colors.onBackground,
                     )
-
                 }
                 Spacer(modifier = Modifier.height(32.dp))
                 Row(
@@ -179,7 +175,6 @@ fun NavigationDrawer(
                         fontSize = MaterialTheme.typography.body1.fontSize,
                         linkTextColor = MaterialTheme.colors.onBackground,
                     )
-
                 }
             }
         },
@@ -210,26 +205,25 @@ fun NavigationDrawer(
     }
 }
 
+ @Composable
+ fun DrawerHeader() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 36.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Icon(
+            modifier = Modifier.size(128.dp),
+            painter = painterResource(
+                id = R.drawable.twotone_cloud_24
+            ),
+            contentDescription = null,
+            tint = MaterialTheme.colors.onBackground
 
-//@Composable
-//fun DrawerHeader() {
-//    Box(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .padding(vertical = 36.dp),
-//        contentAlignment = Alignment.Center
-//    ) {
-//        Icon(
-//            modifier = Modifier.size(128.dp),
-//            painter = painterResource(
-//                id = R.drawable.twotone_cloud_24
-//            ),
-//            contentDescription = null,
-//            tint = MaterialTheme.colors.onBackground
-//
-//        )
-//    }
-//}
+        )
+    }
+ }
 
 @Composable
 fun DrawerBody(

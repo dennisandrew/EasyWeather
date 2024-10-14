@@ -12,17 +12,17 @@ import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 
-
 @Composable
 fun Background(
     modifier: Modifier = Modifier,
     imageRes: Int?
 ) {
     if (imageRes == null) {
-        if (isSystemInDarkTheme())
+        if (isSystemInDarkTheme()) {
             Box(modifier = Modifier.background(Color.Black))
-        else
+        } else {
             Box(modifier = Modifier.background(Color.White))
+        }
     } else {
         Image(
             modifier = modifier,
@@ -43,5 +43,3 @@ fun Background(
         )
     }
 }
-
-

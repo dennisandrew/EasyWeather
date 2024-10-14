@@ -22,7 +22,4 @@ data class HourlyWeatherDataDto(
     val cloudCover: List<Int>,
     @field:Json(name = "windgusts_10m")
     val windGusts: List<Double>
-
-
-
 )

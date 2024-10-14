@@ -1,6 +1,5 @@
 package com.dacoding.easyweather.presentation.util
 
-
 import android.content.Context
 import androidx.annotation.StringRes
 
@@ -10,7 +9,6 @@ sealed class UiText {
         @StringRes val resId: Int,
         vararg val args: Any
     ) : UiText()
-
 
     fun asString(context: Context): String {
         return when (this) {

@@ -22,4 +22,3 @@ interface WeatherApi {
         @Query("longitude") long: Double
     ): HourlyWeatherDto
 }
-

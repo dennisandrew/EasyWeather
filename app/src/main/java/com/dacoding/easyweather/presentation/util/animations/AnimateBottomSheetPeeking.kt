@@ -1,14 +1,16 @@
 package com.dacoding.easyweather.presentation.util.animations
 
-import androidx.compose.animation.core.*
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.AnimationVector1D
+import androidx.compose.animation.core.EaseInBounce
+import androidx.compose.animation.core.EaseOutBounce
+import androidx.compose.animation.core.tween
 import androidx.compose.material.BottomSheetState
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import kotlinx.coroutines.launch
 
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun animateBottomSheetPeeking(
     sheetState: BottomSheetState,

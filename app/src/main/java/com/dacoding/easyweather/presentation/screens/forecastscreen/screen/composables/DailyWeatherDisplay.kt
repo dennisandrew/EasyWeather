@@ -90,9 +90,7 @@ fun DailyWeatherDisplay(
                     fontSize = 22.sp
                 )
             }
-
         }
-
     }
 }
 
@@ -130,9 +128,3 @@ fun toDayOfWeek(index: Int): String {
         }
     }
 }
-
-
-
-
-
-

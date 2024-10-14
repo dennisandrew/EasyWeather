@@ -53,7 +53,7 @@ fun HomeTempChart(state: HomeWeatherState) {
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(vertical = 42.dp)
-                    .padding(horizontal =  16.dp)
+                    .padding(horizontal = 16.dp)
                     .alpha(0.85f),
                 isZoomEnabled = false,
                 chart = columnChart(

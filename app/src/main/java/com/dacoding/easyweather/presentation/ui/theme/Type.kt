@@ -10,7 +10,7 @@ import com.dacoding.easyweather.R
 // Set of Material typography styles to start with
 
 private val defaultTypography = Typography()
-//val Typography = Typography(
+// val Typography = Typography(
 //    body1 = TextStyle(
 //        fontFamily = FontFamily.Default,
 //        fontWeight = FontWeight.Normal,
@@ -29,7 +29,7 @@ caption = TextStyle(
     fontSize = 12.sp
 )
 */
-//)
+// )
 private val ralewayFamily = FontFamily(
     fonts = listOf(
         Font(

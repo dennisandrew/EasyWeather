@@ -27,8 +27,6 @@ fun LabelColumn() {
 
         val labelHeight = 36
 
-
-
         Box(
             modifier = Modifier
                 .size(height = labelHeight.dp, width = 150.dp),

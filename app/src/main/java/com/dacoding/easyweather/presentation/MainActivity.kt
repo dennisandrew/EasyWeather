@@ -21,7 +21,6 @@ import com.dacoding.easyweather.presentation.screens.homescreen.screen.util.Home
 import com.dacoding.easyweather.presentation.ui.theme.EasyWeatherTheme
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val homeViewModel: HomeWeatherViewModel by viewModels()
@@ -30,7 +29,6 @@ class MainActivity : ComponentActivity() {
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
     private lateinit var navController: NavHostController
     val gpsSettingsIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,11 +60,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-
     }
-
 }
-
-
-
-

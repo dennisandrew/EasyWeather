@@ -8,12 +8,12 @@ import androidx.compose.runtime.Composable
 
 @SuppressLint("ConflictingOnColor")
 
-//private val LightColorPalette = darkColors(
+// private val LightColorPalette = darkColors(
 //    primary = TextUniversal,
 //    background = BackgroundLight,
 //    onBackground = TextLight,
 //    primaryVariant = Grey
-//)
+// )
 
 private val DarkColorPalette = darkColors(
     primary = TextUniversal,
